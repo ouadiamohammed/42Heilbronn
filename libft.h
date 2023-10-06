@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 10:18:24 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/06 10:46:21 by mouadia          ###   ########.fr       */
+/*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
+/*   Updated: 2023/10/06 10:56:51 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LIBFT_H
+#define LIBFT_h
 
-int	ft_isalpha(int	c)
-{
-	if ((c >= 97 && c <= 122) || (c >= 65 && c <= 90))
-		return (1);
-	else
-		return (0);
-}
+int	ft_atoi(char *s);
+int	ft_isalnum(int c);
+int	ft_isascii(int c);
+int	ft_isdigit(int	c);
+int	ft_isprint(int c);
+
+
+
+
+
+
+
+
+
+
+
+
+#endif
