@@ -9,19 +9,13 @@
 /*   Updated: 2023/10/06 10:02:51 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int		ft_isalpha(c)
-{
-	if ((c >= 65 && c <= 90) | (c >= 97 && c <= 122))
-		return 1;
-	return 0;
-}
+#include <stdio.h>
 
 int main()
 {
-	char c = 'a';
-
-	printf("%d",ft_isalpha(c));
-
-	return 0;
+	int num1 = 99;
+    int num2 = 1;
+    printf("The sum of %d and %d is %d\n", num1, num2,
+           num1 + num2);
+    return 0;
 }
