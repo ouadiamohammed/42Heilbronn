@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:31:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/08 13:54:52 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/08 14:46:06 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 int main(void)
 {
     char *c;
-    int number;
+    int number1, number2;
 
     c = "1245";
 
-    number = ft_atoi(c);
-    printf("this is th eresult = %d", number);
+
+    number1 = ft_atoi(c);
+    number2 = ft_strlen(c);
+    printf("this is th eresult = %d\n and th elen of it is %d\n", number1, number2);
     return 0;
 }

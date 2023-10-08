@@ -6,38 +6,33 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:30:55 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/08 13:56:13 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/08 14:07:25 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <limits.h>
-
-int	ft_atoi(const char *str)
+int	ft_atoi(char *s)
 {
-	int					i;
-	int					signe;
-	unsigned long long	nbr;
+	int	i;
+	int	sign;
+	int	result;
 
+	sign = -1;
+	result = 0;
 	i = 0;
-	signe = 1;
-	nbr = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (s[i] != '\0')
 	{
-		if (str[i] == '-')
-			signe *= -1;
+		if (s[i] == '-')
+			sign *= -1;
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			if (result < 0)
+				result = (result * 10) - (s[i] - '0');
+			else
+				result = (s[i] - '0') * -1;
+			if (s[i + 1] < 48 || s[i + 1] > 57)
+				break ;
+		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + str[i] - '0';
-		if (nbr > LONG_MAX && signe > 0)
-			return (-1);
-		if (nbr > LONG_MAX && signe < 0)
-			return (0);
-		i++;
-	}
-	return (nbr * signe);
+	return (result * sign);
 }
