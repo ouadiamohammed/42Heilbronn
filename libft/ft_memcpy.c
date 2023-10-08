@@ -6,11 +6,11 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:34:54 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/06 10:46:05 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/09 00:04:32 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_memcpy(char *dest, char *src, unsigned int n)
+char	*ft_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
 

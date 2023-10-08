@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:31:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/08 15:16:30 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/08 23:56:17 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,7 @@
 
 int main(void)
 {
-    const char c;
-    char *str1;
-    const char str[] = "this is just a test";
-
-
-    str1 = strchr(str, c);
-    printf("this is just a test %s\n", str1);
+    int i = ft_atoi("125");
+    printf("%d\n", i);
     return 0;
 }
