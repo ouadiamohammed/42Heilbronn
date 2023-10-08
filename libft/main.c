@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 10:40:15 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/08 13:25:33 by mouadia          ###   ########.fr       */
+/*   Created: 2023/10/08 13:31:48 by mouadia           #+#    #+#             */
+/*   Updated: 2023/10/08 13:54:52 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s)
-{
-	int	i;
+#include <stdio.h>
+#include "libft.h"
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+int main(void)
+{
+    char *c;
+    int number;
+
+    c = "1245";
+
+    number = ft_atoi(c);
+    printf("this is th eresult = %d", number);
+    return 0;
 }
