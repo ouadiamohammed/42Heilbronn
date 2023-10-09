@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:31:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/09 15:28:15 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:37:41 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 
 int main ()
 {
-	const char *largestring = "Foo Bar hello Baz";
-	const char *smallstring = "Bar";
-	char *ptr, *ptr1;
+	char src[] = "Foo Bar hello Baz";
+	char dest[20];
+	size_t result;
  
-	ptr = strnstr(largestring, smallstring, 8);
-	ptr1 = ft_strnstr(largestring, smallstring, 8);
+	result = ft_strlcpy(dest, src, 10);
 
-	printf("%s\n%s\n", ptr, ptr1);
+	if (result >= sizeof(dest))
+		printf("copy failed");
+	else{
+		printf("copied string: %s\n", dest);
+	}
 	return 0;
 }
