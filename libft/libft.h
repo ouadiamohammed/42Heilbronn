@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/09 11:00:58 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/09 11:37:36 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_isprint(int c);
 /*str function*/
 int	ft_strlen(char *s);
 char	*ft_strchr(const char *s, int c);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 
 /*mem Functions*/
