@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:49:39 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/09 16:40:20 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/09 17:02:12 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	dst[i] = '\0';
 	return (j);
 }
-                           
