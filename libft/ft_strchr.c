@@ -6,7 +6,26 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:54:31 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/09 00:04:54 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/09 10:51:34 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+char	*ft_strchr(const char *s, int c)
+{
+	int		i;
+	char	c1;
+
+	i = 0;
+	c1 = (char)c;
+	while (s[i])
+	{
+		if (s[i] == c1)
+		{
+			return ((char *)s + i);
+		}
+		i++;
+	}
+	if (c1 == '\0')
+		return ((char *)s + i);
+	return (0);
+}

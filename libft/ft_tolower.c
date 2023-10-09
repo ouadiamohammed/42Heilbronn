@@ -6,15 +6,15 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:05:39 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/06 21:05:55 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/09 11:06:58 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (c >= 65 && c <= 90)
-    {
-        c += 32;
-    }
-    return (c); 
+	if (c >= 65 && c <= 90)
+	{
+		c += 32;
+	}
+	return (c);
 }

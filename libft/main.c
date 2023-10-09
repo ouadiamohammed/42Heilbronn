@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:31:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/09 10:36:27 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/09 11:01:55 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 #include <string.h>
 #include "libft.h"
 
-int main(void)
-{
-    const char c;
-    char *str1;
-    const char str[] = "this is just a test";
+int main () {
+   const char str[] = "https://www.tutorialspoint.com";
+   const char ch = '.';
+   char *ret;
+   char *ret1;
 
+   ret = strchr(str, ch);
+   ret1 = ft_strchr(str, ch);
 
-    str1 = strchr(str, c);
-    printf("this is just a test %s\n", str1);
-    return 0;
+   printf("String after |%c| is - |%s|\n", ch, ret);
+   printf("String after |%c| is - |%s|\n", ch, ret1);
+   
+   return(0);
 }
