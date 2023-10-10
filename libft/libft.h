@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/09 16:54:26 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/10 12:45:16 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ size_t  ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 /*mem Functions*/
 char	*ft_memcpy(char *dest, char *src, unsigned int n);
+void	*ft_memchr(const void *s, int c, size_t n);
+void *ft_memmove(void *dst, const void *src, size_t len);
+
+
+
+/* PUT Fucntions*/
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+
 
 /* OTHERS */
 int		ft_tolower(int c);
@@ -36,4 +45,5 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+
 #endif
