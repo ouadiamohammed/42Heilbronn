@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:43:30 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/10 12:44:45 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/10 13:58:40 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	
+	while (*s)
+		write(fd, s++, 1);
+	write (fd, "\n", 1);
 }
