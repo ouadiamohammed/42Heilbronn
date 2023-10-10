@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/10 14:21:14 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/10 14:56:02 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,25 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-
 /*str functions*/
 int		ft_strlen(char *s);
 char	*ft_strchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t  ft_strlcat(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*ft_strdup(const char *s1);
 
 /*mem Functions*/
 char	*ft_memcpy(char *dest, char *src, unsigned int n);
 void	*ft_memchr(const void *s, int c, size_t n);
-void *ft_memmove(void *dst, const void *src, size_t len);
-
-
+void	*ft_memmove(void *dst, const void *src, size_t len);
 
 /* PUT Fucntions*/
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
+void	ft_putstr_fd(char *s, int fd);
 
 /* OTHERS */
 int		ft_tolower(int c);
