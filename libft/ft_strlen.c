@@ -6,13 +6,15 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:40:15 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/08 13:25:33 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/11 10:14:31 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
