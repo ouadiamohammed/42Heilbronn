@@ -6,7 +6,7 @@
 #    By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/08 14:21:55 by mouadia           #+#    #+#              #
-#    Updated: 2023/10/09 14:46:02 by mouadia          ###   ########.fr        #
+#    Updated: 2023/10/11 09:02:25 by mouadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,13 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 AR = ar -rcs
-SRC =  $(wildcard ./*.c) #khas nfhamha
-vpath %.c . #hadi tahia
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c \
+					ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c \
+					ft_strrchr.c ft_strchr.c ft_strncmp.c ft_memchr.c ft_strmemcmp.c ft_strnstr.c ft_atoi.c \
+					ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c\
+					ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-OBJ = $(addprefix ./, $(notdir $(SRC:.c=.o))) #hadi
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
