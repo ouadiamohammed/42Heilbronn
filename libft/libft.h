@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/11 10:17:25 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/11 11:20:11 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strdup(const char *s1);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 /*mem Functions*/
 char	*ft_memcpy(char *dest, char *src, unsigned int n);
@@ -47,5 +49,6 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif
