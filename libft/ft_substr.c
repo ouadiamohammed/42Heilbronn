@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 10:58:11 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/11 11:09:20 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/11 23:02:23 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 		start++;
 	}
-	dup[i] == '\0';
+	dup[i] = '\0';
 	return (dup);
 }

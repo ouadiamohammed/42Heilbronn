@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:31:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/09 16:45:14 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:49:22 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 int main ()
 {
 	char src[] = "Foo Bar hello Baz";
-	char dest[4];
+	char dest[20];
 	size_t result;
  
-	result = ft_strlcpy(dest, src, 10);
+	result = ft_strlcpy(dest, src, 20);
 
 	if (result >= sizeof(dest))
 		printf("copy failed\n");
