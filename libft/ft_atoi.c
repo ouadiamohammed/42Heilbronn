@@ -6,11 +6,10 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:30:55 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/15 12:25:27 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/15 19:19:16 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft.h"
 
 static int	white_space(char c)

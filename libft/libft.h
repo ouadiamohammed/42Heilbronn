@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/15 12:47:45 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/15 21:03:51 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+
+typedef struct s_list
+{
+void *content;
+struct s_list *next;
+} t_list;
+
 
 /*str functions*/
 size_t	ft_strlen(const char *s);
@@ -26,6 +34,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strdup(const char *s1);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strtrim(char const *s1, char const *set);
 
 /*mem Functions*/
 char	*ft_memcpy(char *dest, char *src, unsigned int n);
