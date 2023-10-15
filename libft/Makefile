@@ -6,7 +6,7 @@
 #    By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/08 14:21:55 by mouadia           #+#    #+#              #
-#    Updated: 2023/10/15 12:42:30 by mouadia          ###   ########.fr        #
+#    Updated: 2023/10/15 21:56:40 by mouadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,23 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 
 OBJ = $(SRC:.c=.o)
 
+BUNUS = ft_lstnew
+
+BUNUS = $(BUNUS:.c=.o)
+
 all: $(NAME)
 
 $(NAME) : $(OBJ)
 			$(AR) $(NAME) $(OBJ)
 
 $(OBJ): $(SRC)
-		$(CC) -I ./ $(CFLAGS) -c $(SRC)
+		$(CC) -I ./ $(CFLAGS) -c $(SRC)#
+
+$(OBONUS) : $(BONUS)
+		$(CC) -I ./ $(CFLAGS) -c $(BONUS)
+		$(AR) $(NAME) $(OBONUS) $(OBJ)
+
+bunus: $(OBONUS) $(OBJ)
 
 clean:
 		$(RM) $(OBJ)
