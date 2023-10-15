@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/11 11:20:11 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/15 11:57:04 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_putstr_fd(char *s, int fd);
 /* OTHERS */
 int		ft_tolower(int c);
 int		ft_touper(int c);
-int		ft_atoi(char *s);
+int     ft_atoi(const char *str);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
