@@ -6,7 +6,7 @@
 #    By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/08 14:21:55 by mouadia           #+#    #+#              #
-#    Updated: 2023/10/16 14:35:32 by mouadia          ###   ########.fr        #
+#    Updated: 2023/10/16 15:34:12 by mouadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,3 +49,5 @@ fclean:	clean
 		$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re bonus
