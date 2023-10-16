@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:56:23 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/16 15:59:04 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/16 16:15:44 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    while (lst != NULL)
-    {
-        f(lst->next);
-        lst = lst->next;
-    }
+	while (lst != NULL)
+	{
+		f(lst->next);
+		lst = lst->next;
+	}
 }
