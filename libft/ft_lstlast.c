@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 13:31:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/10 10:49:22 by mouadia          ###   ########.fr       */
+/*   Created: 2023/10/16 14:42:55 by mouadia           #+#    #+#             */
+/*   Updated: 2023/10/16 14:50:36 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-int main ()
+t_list *ft_lstlast(t_list *lst)
 {
-	char src[] = "Foo Bar hello Baz";
-	char dest[20];
-	size_t result;
- 
-	result = ft_strlcpy(dest, src, 20);
-
-	if (result >= sizeof(dest))
-		printf("copy failed\n");
-	else{
-		printf("copied string: %s\n", dest);
-	}
-	return 0;
+    if (lst == NULL)
+        return (NULL);
+    while (lst->next != NULL)
+        lst = lst->next;
+    return (lst);
 }
