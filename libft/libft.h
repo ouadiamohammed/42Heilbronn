@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/18 21:23:10 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/18 21:41:04 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	ft_putstr_fd(char *s, int fd);
 
 /* OTHERS */
 int		ft_tolower(int c);
-int		ft_touper(int c);
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
@@ -63,8 +62,7 @@ void	*ft_calloc(size_t count, size_t size);
 char	**ft_split(char const *s, char c);
 int		ft_isalpha(int c);
 char	*ft_itoa(int n);
-int		ft_touper(int c);
-
+int		ft_toupper(int c);
 
 /* Bonus */
 t_list	*ft_lstnew(void *content);
@@ -76,6 +74,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
 
 #endif
