@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:44:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/16 14:02:56 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/18 17:33:22 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 typedef struct s_list
 {
-void			*content;
-struct s_list	*next;
+	void			*content;
+	struct s_list	*next;
 }				t_list;
 
 /*str functions*/
