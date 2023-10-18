@@ -6,23 +6,22 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:34:54 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/15 20:44:43 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/18 18:08:38 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_memcpy(char *dest, char *src, unsigned int n)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	unsigned int	i;
+	char	*restrict		d;
+	const char	*restrict	s;
 
-	i = 0;
-	if (!dest || !src)
-		return (NULL);
-	while (i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
+	if (!dst && !src && n)
+		return (dst);
+	d = (char *restrict)dst;
+	s = (const char *restrict)src;
+	while (n--)
+		*d++ = *s++;
+	return (dst);
 }

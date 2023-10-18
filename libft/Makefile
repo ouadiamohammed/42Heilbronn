@@ -6,7 +6,7 @@
 #    By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/08 14:21:55 by mouadia           #+#    #+#              #
-#    Updated: 2023/10/17 20:55:10 by mouadia          ###   ########.fr        #
+#    Updated: 2023/10/18 17:35:50 by mouadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
+AR = ar -rc
 SRC = ft_atoi.c ft_isprint.c ft_memmove.c ft_strchr.c ft_strmapi.c ft_toupper.c ft_bzero.c ft_itoa.c \
 		ft_memset.c ft_strdup.c ft_strncmp.c ft_calloc.c ft_putchar_fd.c ft_striteri.c \
 		ft_strnstr.c ft_isalnum.c ft_putendl_fd.c ft_strjoin.c ft_strrchr.c ft_isalpha.c \
@@ -31,7 +32,7 @@ OBONUS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		ar -rc $(NAME) $(OBJ)
+		$(AR) $(NAME) $(OBJ)
 		ranlib $(NAME)
 
 $(OBJ): $(SRC)
@@ -39,7 +40,7 @@ $(OBJ): $(SRC)
 
 $(OBONUS) : $(BONUS)
 		$(CC) -I ./ $(CFLAGS) -c $(BONUS)
-		ar -rc $(NAME) $(OBONUS) $(OBJ)
+		$(AR) $(NAME) $(OBONUS) $(OBJ)
 		ranlib $(NAME)
 
 bonus: $(OBONUS) $(OBJ)
