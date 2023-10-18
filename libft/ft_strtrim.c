@@ -6,26 +6,43 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:33:10 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/15 19:33:19 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/18 19:29:01 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	ft_checker(char const *set, char c)
+{
+	while (*set)
+	{
+		if (c == *set)
+			return (1);
+		set++;
+	}
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		j;
-	int		start;
-	char	*trimed;
+	char	*trimed_str;
+	char	*trim;
+	int		len;
 
-	start = 0;
-	j = ft_strlen(s1);
-	if (!s1 || !set)
+	len = ft_strlen(s1);
+	while (*s1 && ft_checker(set, *s1))
+	{
+		s1++;
+		len--;
+	}
+	while (len > 0 && ft_checker(set, s1[len - 1]))
+		len--;
+	trim = (char *)malloc(sizeof(char) * (len +1));
+	if (!trim)
 		return (NULL);
-	while (ft_strchr(set, s1[start]) != 0 && s1[start])
-		start++;
-	while (j > start && ft_strrchr(set, s1[j]) != 0)
-		j--;
-	trimed = ft_substr(s1, start, sizeof(char) * (j - start + 1));
-	return (trimed);
+	trimed_str = trim;
+	trim[len] = '\0';
+	while (len-- > 0)
+		*(trim++) = *(s1++);
+	return (trimed_str);
 }
