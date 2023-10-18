@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:58:54 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/17 20:01:07 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/18 20:16:06 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(nb % 10, fd);
 	}
 	else
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fd(nb + '0', fd);
 }
