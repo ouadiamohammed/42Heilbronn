@@ -6,13 +6,13 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 10:34:54 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/18 18:08:38 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/18 18:19:47 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char	*restrict		d;
 	const char	*restrict	s;
