@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:10:25 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/18 18:45:01 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/18 19:34:47 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	if (haystack_len < len)
 		len = haystack_len;
 	if (!needle_len)
-		return	((char *)haystack);
+		return ((char *)haystack);
 	while (len-- >= needle_len)
 	{
 		if (ft_strncmp(haystack, needle, needle_len))
 			haystack++;
 		else
 			return ((char *)haystack);
-		
 	}
 	return (0);
 }
