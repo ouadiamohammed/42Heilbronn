@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:38:54 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/20 19:31:17 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/21 17:58:24 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,4 @@ char	**ft_split(char const *s, char c)
 	word_malloc(splited, s, c, number_of_word(s, c));
 	splited[number_of_word(s, c)] = NULL;
 	return (splited);
-}
-int main(void)
-{
-	char *str = "hello world";
-	char **str2 = ft_split(str, ' ');
-	int i = 0;
-	while (str2[i])
-	{
-		printf("%s\n", str2[i++]);
-	}
-	return (0);
 }
