@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:26:33 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 14:35:40 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:29:20 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr(char *str, int *counter)
 	{
 		ft_putstr("(null)", counter);
 		return ;
-	}	
+	}
 	while (*str)
 	{
 		ft_putchar(*str, counter);

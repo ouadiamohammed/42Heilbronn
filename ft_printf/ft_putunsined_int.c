@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker.c                                       :+:      :+:    :+:   */
+/*   ft_putunsined_int.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 12:58:03 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 16:45:50 by mouadia          ###   ########.fr       */
+/*   Created: 2023/10/23 16:42:12 by mouadia           #+#    #+#             */
+/*   Updated: 2023/10/23 16:44:03 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_checker(const char	*format, va_list	args, int *counter)
+void	ft_putunsigned_int(unsigned int nb, int *counter)
 {
-	char	*str;
-
-	if (*format == 'c')
-		ft_putchar(va_arg(args, int), counter);
-	else if (*format == 's')
+	if (nb > 9)
 	{
-		str = va_arg(args, char *);
-		ft_putstr(str, counter);
+		ft_putnbr(nb / 10, counter);
+		ft_putnbr(nb % 10, counter);
 	}
-	else if (*format == 'd' || *format == 'i')
-		ft_putnbr((va_arg(args, int)), counter);
-	else if (*format == 'u')
-		ft_putunsigned_int((va_arg(args, unsigned int)), counter);
-		
+	else
+		ft_putchar(nb + '0', counter);
 }
