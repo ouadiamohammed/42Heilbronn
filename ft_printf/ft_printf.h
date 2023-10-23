@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 10:35:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 12:58:34 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/23 13:45:00 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 
 int	ft_printf(const char *format, ...);
-int checker(const char  *format, va_list args, int *i);
+int ft_checker(const char  *format, va_list args, int *i);
 int	ft_putchar(char c);
 int	ft_putnbr(int nb, int *counter);
 int	ft_putstr(char *str);
