@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:41:30 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 19:58:11 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/23 21:12:26 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main(void)
     char *str = "hellow world";
     int number = 11452;
     int number1 = 1;
+    int hex = 1540;
+    int *ptr = &hex;
 
-
-    printf("/*=============== format = "" ==========*/\n");
     
     printf("===========TEST 1============\n");
     len1 = printf("");
@@ -54,19 +54,55 @@ int main(void)
     printf("\n");
 
     printf("===========TEST 4============\n");
-    len1 = printf("this is my str : %d\n", number);
+    len1 = printf("this is my number : %d\n", number);
     printf("len1 = [%d]\n", len1);
     printf("=======================\n");
-    len2 = ft_printf("this is my str : %d\n", number);
+    len2 = ft_printf("this is my number : %d\n", number);
     printf("len2 = [%d]\n", len2);
 
+    printf("\n");
+    
     printf("===========TEST 5============\n");
-    len1 = printf("this is my str : %u\n", number1);
+    len1 = printf("this is my unsigned number : %u\n", number1);
     printf("len1 = [%d]\n", len1);
     printf("=======================\n");
-    len2 = ft_printf("this is my str : %u\n", number1);
+    len2 = ft_printf("this is my unsigned number : %u\n", number1);
     printf("len2 = [%d]\n", len2);
 
+    printf("\n");
+    
+    printf("===========TEST 6============\n");
+    len1 = printf("this is my hex : %x\n", hex);
+    printf("len1 = [%d]\n", len1);
+    printf("=======================\n");
+    len2 = ft_printf("this is my hex : %x\n", hex);
+    printf("len2 = [%d]\n", len2);
+
+    printf("\n");
+    
+    printf("===========TEST 7============\n");
+    len1 = printf("this is my HEX : %X\n", hex);
+    printf("len1 = [%d]\n", len1);
+    printf("=======================\n");
+    len2 = ft_printf("this is my HEX : %X\n", hex);
+    printf("len2 = [%d]\n", len2);
+
+    printf("\n");
+    
+    printf("===========TEST 7============\n");
+    len1 = printf("this is my percent : %%\n");
+    printf("len1 = [%d]\n", len1);
+    printf("=======================\n");
+    len2 = ft_printf("this is my percent : %%\n");
+    printf("len2 = [%d]\n", len2);
+
+    printf("\n");
+    
+    printf("===========TEST 7============\n");
+    len1 = printf("this is my percent : %p\n", (void *)ptr);
+    printf("len1 = [%d]\n", len1);
+    printf("=======================\n");
+   
     
     return (0);
 }

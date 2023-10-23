@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:58:03 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 16:45:50 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/23 20:39:56 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,10 @@ void	ft_checker(const char	*format, va_list	args, int *counter)
 		ft_putnbr((va_arg(args, int)), counter);
 	else if (*format == 'u')
 		ft_putunsigned_int((va_arg(args, unsigned int)), counter);
-		
+	else if (*format == 'x')
+		ft_put_x((va_arg(args, unsigned int)), counter);
+	else if (*format == 'X')
+		ft_put_HEX((va_arg(args, unsigned int)), counter);
+	else if (*format == '%')
+		ft_putchar('%', counter);	
 }

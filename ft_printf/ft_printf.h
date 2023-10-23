@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 10:35:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 16:43:42 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/23 20:48:15 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ void	ft_putchar(char c, int *counter);
 void	ft_putnbr(int nb, int *counter);
 void	ft_putstr(char *str, int *counter);
 void	ft_putunsigned_int(unsigned int nb, int *counter);
+void	ft_put_x(unsigned int nb, int *len);
+void	ft_put_HEX(unsigned int nb, int *counter);
 
 #endif
