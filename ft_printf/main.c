@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:41:30 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 12:28:16 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/23 12:54:32 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void)
     int len1 = 0;
     int len2 = 0;
     char c = 'c';
+    char *str = "hellow world";
 
 
     printf("/*=============== format = "" ==========*/\n");
@@ -40,7 +41,12 @@ int main(void)
     printf("len2 = [%d]\n", len2);
 
     /*================ %s ===================*/
-    
+    printf("===========TEST============\n");
+    len1 = printf("this is my str %s\n", str);
+    printf("len1 = [%d]\n", len1);
+    printf("=======================\n");
+    len2 = printf("this is my str %s\n", str);
+    printf("len2 = [%d]\n", len2);
     
     return (0);
 }

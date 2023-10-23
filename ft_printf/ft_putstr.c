@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 10:35:48 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 12:58:34 by mouadia          ###   ########.fr       */
+/*   Created: 2023/10/10 14:26:33 by mouadia           #+#    #+#             */
+/*   Updated: 2023/10/23 13:01:05 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
+#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...);
-int checker(const char  *format, va_list args, int *i);
-int	ft_putchar(char c);
-int	ft_putnbr(int nb, int *counter);
-int	ft_putstr(char *str);
+int	ft_putstr(char *str)
+{
+	int i;
+	int res;
+	char *null;
 
-
-#endif
+	i = 0;
+	res = 0;
+	null = "(null)";
+	if (str == NULL)
+	{
+		for (; *(null + i) != '\0'; i++)
+		{
+			ft_putchar(*(null + i));
+			res++;
+		}
+	}
+	else
+	{
+		for (i = 0; str[i] != '\0'; i++)
+		{
+			ft_putchar(str[i]);
+			res++;
+		}
+	}
+	return (res);
+}
