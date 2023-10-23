@@ -6,13 +6,14 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:31:26 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 11:59:41 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/23 14:38:18 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+void	ft_putchar(char c, int *counter)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
+	(*counter)++;
 }

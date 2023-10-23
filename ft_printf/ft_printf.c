@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 10:34:55 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 13:00:47 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:18:50 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,26 @@
 
 int	ft_printf(const char *format, ...)
 {
-	int i;
 	int counter;
 	va_list agrs;
 	
-	i = 0;
 	counter = 0;
 	va_start(agrs, format);
 	if (format == NULL)
 		return (-1);
-	while (*(format + i))
+	while (*format)
 	{
-		if (*(format + i) == '%')
+		if (*format == '%')
 		{
-			if (format[i + 1] == '\0')
+			if (*format == '\0')
 				return (-1);
-			counter += checker(format, agrs, &i);
+			ft_checker(++format, agrs, &counter);
 		}
 		else
 		{
-			ft_putchar(*(format + i));
-			counter++;
+			ft_putchar(*format, &counter);
 		}
-		i++;       
+		format++;      
 	}
 	va_end(agrs);
 	return (counter);
