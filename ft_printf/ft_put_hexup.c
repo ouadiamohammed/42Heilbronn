@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_put_hexup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 10:34:55 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/24 09:51:08 by mouadia          ###   ########.fr       */
+/*   Created: 2023/10/23 20:29:40 by mouadia           #+#    #+#             */
+/*   Updated: 2023/10/24 09:59:02 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+void	ft_put_hexup(unsigned int nb, int *counter)
 {
-	int		counter;
-	va_list	agrs;
+	char	*str;
 
-	counter = 0;
-	va_start(agrs, format);
-	if (format == NULL)
-		return (-1);
-	while (*format)
+	str = "0123456789ABCDEF";
+	if (nb < 16)
+		ft_putchar(str[nb], counter);
+	if (nb >= 16)
 	{
-		if (*format == '%')
-		{
-			if (*format == '\0')
-				return (-1);
-			ft_checker(++format, agrs, &counter);
-		}
-		else
-		{
-			ft_putchar(*format, &counter);
-		}
-		format++;
+		ft_put_hexup(nb / 16, counter);
+		ft_putchar(str[nb % 16], counter);
 	}
-	va_end(agrs);
-	return (counter);
 }

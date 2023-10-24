@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:41:30 by mouadia           #+#    #+#             */
-/*   Updated: 2023/10/23 21:12:26 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/10/24 09:39:08 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,11 @@ int main(void)
     printf("\n");
     
     printf("===========TEST 7============\n");
-    len1 = printf("this is my percent : %p\n", (void *)ptr);
+    len1 = printf("this is my adresse : %p\n", (void *)ptr);
     printf("len1 = [%d]\n", len1);
     printf("=======================\n");
+    len2 = ft_printf("this is my adresse : %p\n", (void *)ptr);
+    printf("len2 = [%d]\n", len2);
    
     
     return (0);
