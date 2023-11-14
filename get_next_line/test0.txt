@@ -1,0 +1,2 @@
+hello world 
+i am testing now  get_next_line

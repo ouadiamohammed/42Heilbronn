@@ -1,2 +1,0 @@
-hello,
-here we test the function get_next_line
