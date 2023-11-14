@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:58:12 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/14 19:45:59 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/11/14 20:05:07 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /**
  * ft_strlen: this function calculate the lenght of str
  * @str: string
+ * 
  * Return: the lenghth of str
  */
 
@@ -34,6 +35,7 @@ size_t	ft_strlen(char *str)
  * ft_strchr: locates the first occurrence of a character
  * 				in the string.
  * @str: string
+ * 
  * Return: pointer to the first occurrence of the character c in the str.
  */
 
@@ -60,8 +62,9 @@ char	*ft_strchr(char *str, int c)
  * ft_strjoin: a Function that concatenates two strings.
  * @s1: string.
  * @s2: string.
+ * 
  * Return: pointer to the newly created string.
-*/
+ */
 
 char	*ft_strjoin(char *s1, char *s2)
 {
