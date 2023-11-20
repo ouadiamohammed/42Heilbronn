@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:50:39 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/14 21:19:23 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/11/20 22:59:51 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * Return: void.
  */
 
-void	read_and_save(int fd, char *save)
+char	*read_and_save(int fd, char *save)
 {
 	char 	*readed;
 	int		bytes;
@@ -29,7 +29,7 @@ void	read_and_save(int fd, char *save)
 	bytes = 1;
 	readed = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!readed)
-		return;
+		return(NULL);
 	while (!ft_strchr(save, '\n') && bytes != 0)
 	{
 		bytes = read(fd, readed, BUFFER_SIZE);
@@ -37,12 +37,13 @@ void	read_and_save(int fd, char *save)
 		{
 			free(save);
 			free(readed);
-			return;
+			return(NULL);
 		}
 		readed[bytes] = '\0';
 		save = ft_strjoin(save, readed);
 	}
 	free(readed);
+	return(save);
 }
 
 char	*save_line(char *save)
@@ -114,7 +115,8 @@ char	*get_next_line(int fd)
 		return (0);
 
 	//now we should read from the fd and save the return value in the save var
-	read_and_save(fd, save);
+	save = read_and_save(fd, save);
+	
 	if (!save)
 	{
 		return (NULL);
