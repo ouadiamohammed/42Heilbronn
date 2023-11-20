@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:50:39 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/20 22:59:51 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/11/21 00:00:27 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 
 char	*read_and_save(int fd, char *save)
 {
-	char 	*readed;
+	char	*readed;
 	int		bytes;
 
 	bytes = 1;
 	readed = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!readed)
-		return(NULL);
+		return (NULL);
 	while (!ft_strchr(save, '\n') && bytes != 0)
 	{
 		bytes = read(fd, readed, BUFFER_SIZE);
@@ -37,13 +37,13 @@ char	*read_and_save(int fd, char *save)
 		{
 			free(save);
 			free(readed);
-			return(NULL);
+			return (NULL);
 		}
 		readed[bytes] = '\0';
 		save = ft_strjoin(save, readed);
 	}
 	free(readed);
-	return(save);
+	return (save);
 }
 
 char	*save_line(char *save)
@@ -108,21 +108,17 @@ char	*rest_save(char *save)
 
 char	*get_next_line(int fd)
 {
-    char		*line;
+	char		*line;
 	static char	*save;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-
-	//now we should read from the fd and save the return value in the save var
 	save = read_and_save(fd, save);
-	
 	if (!save)
 	{
 		return (NULL);
 	}
 	line = save_line(save);
 	save = rest_save(save);
-
 	return (line);
 }
