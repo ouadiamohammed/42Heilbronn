@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 19:50:39 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/23 18:47:44 by mouadia          ###   ########.fr       */
+/*   Created: 2023/11/21 20:47:10 by mouadia           #+#    #+#             */
+/*   Updated: 2023/11/23 21:27:14 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,19 +106,20 @@ char	*rest_save(char *save)
  * Return: returns the line has been reading.
  */
 
-char	*get_next_line(int fd)
+char	*get_next_line_bonus(int fd)
 {
 	char		*line;
-	static char	*save;
+	static char	*save[FOPEN_MAX];
+
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	save = read_and_save(fd, save);
-	if (!save)
+	save[fd] = read_and_save(fd, save[fd]);
+	if (!save[fd])
 	{
 		return (NULL);
 	}
-	line = save_line(save);
-	save = rest_save(save);
+	line = save_line(save[fd]);
+	save[fd] = rest_save(save[fd]);
 	return (line);
 }
