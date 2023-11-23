@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 20:47:07 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/23 21:25:29 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/11/23 23:07:30 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 # include <stdlib.h>
 # include <limits.h>
 
-char	*ft_strchr(char *s, int c);
-size_t	ft_strlen(char *s);
+char	*ft_strchr(char *str, int c);
+size_t	ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line_bonus(int fd);
+char	*get_next_line(int fd);
 
 #endif

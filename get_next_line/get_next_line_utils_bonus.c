@@ -6,10 +6,9 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 20:47:02 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/23 21:09:30 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/11/23 23:28:38 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "get_next_line_bonus.h"
 
@@ -67,7 +66,7 @@ char	*ft_strchr(char *str, int c)
  * Return: pointer to the newly created string.
  */
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *str1, char *str2)
 {
 	char	*join;
 	int		i;
@@ -75,22 +74,22 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = -1;
 	j = 0;
-	if (!s1)
+	if (!str1)
 	{
-		s1 = malloc(sizeof(char) * 1);
-		s1[0] = '\0';
+		str1 = malloc(sizeof(char) * 1);
+		str1[0] = '\0';
 	}
-	if (!s1 || !s2)
+	if (!str1 || !str2)
 		return (NULL);
-	join = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	join = malloc(sizeof(char) * (ft_strlen(str1) + ft_strlen(str2) + 1));
 	if (!join)
 		return (NULL);
-	if (s1)
-		while (s1[++i])
-			join[i] = s1[i];
-	while (s2[j])
-		join[i++] = s2[j++];
+	if (str1)
+		while (str1[++i])
+			join[i] = str1[i];
+	while (str2[j])
+		join[i++] = str2[j++];
 	join[i] = '\0';
-	free(s1);
+	free(str1);
 	return (join);
 }

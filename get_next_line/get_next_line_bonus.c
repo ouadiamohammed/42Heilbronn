@@ -6,11 +6,11 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 20:47:10 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/23 21:27:14 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/11/23 23:15:42 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /**
  * read_and_save: this function reads the data from fd
@@ -106,17 +106,17 @@ char	*rest_save(char *save)
  * Return: returns the line has been reading.
  */
 
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*save[FOPEN_MAX];
-
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	save[fd] = read_and_save(fd, save[fd]);
 	if (!save[fd])
 	{
+		free(line);
 		return (NULL);
 	}
 	line = save_line(save[fd]);

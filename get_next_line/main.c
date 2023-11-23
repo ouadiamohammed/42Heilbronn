@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:09:34 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/23 21:27:53 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/11/23 23:10:37 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,20 @@ int main(void)
     int file2  = open("./text1.txt", O_RDONLY);
     char *str1;
     
-    str = get_next_line_bonus(file);
-    str1 = get_next_line_bonus(file2);
+    str = get_next_line(file);
+    str1 = get_next_line(file2);
 
     printf("%s\n%s\n", str, str1);
 
-    str = get_next_line_bonus(file);
-    str1 = get_next_line_bonus(file2);
+    str = get_next_line(file);
+    str1 = get_next_line(file2);
 
     printf("%s\n%s\n", str, str1);
+    
+    str = get_next_line(file);
+    str1 = get_next_line(file2);
+
+    printf("%s\n%s\n", str, str1); 
     
     return(0);
 }
