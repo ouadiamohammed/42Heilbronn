@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 20:47:10 by mouadia           #+#    #+#             */
-/*   Updated: 2023/11/23 23:15:42 by mouadia          ###   ########.fr       */
+/*   Updated: 2023/11/24 20:09:17 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,7 @@ char	*get_next_line(int fd)
 		return (0);
 	save[fd] = read_and_save(fd, save[fd]);
 	if (!save[fd])
-	{
-		free(line);
 		return (NULL);
-	}
 	line = save_line(save[fd]);
 	save[fd] = rest_save(save[fd]);
 	return (line);
