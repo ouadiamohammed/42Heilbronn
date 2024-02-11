@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   instractions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 21:02:41 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/11 21:26:12 by mouadia          ###   ########.fr       */
+/*   Created: 2024/02/11 21:12:09 by mouadia           #+#    #+#             */
+/*   Updated: 2024/02/11 21:42:28 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <limits.h>
-
-typedef struct push_swap
+// rotate the first two elements in the linked list
+void	rotateFirstTwo(t_stack **head)
 {
-    int nbr;
-    struct push_swap *next;
-}t_stack;
+	t_stack *temp;
 
+	if (*head == NULL || (*head)->next == NULL)
+		ft_exit("Not enough elements to rotate. \n", "");
 
-void ft_exit(const char* msg, const char *type);
-
-
-
-
-
-#endif
+	temp = *head;
+	*head = (*head)->next;
+	temp->next = (*head)->next;
+	(*head)->next = temp;
+	
+}
