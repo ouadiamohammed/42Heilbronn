@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:12:09 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/11 21:42:28 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/11 21:54:52 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,19 @@ void	rotateFirstTwo(t_stack **head)
 	temp->next = (*head)->next;
 	(*head)->next = temp;
 	
+}
+
+void	sa(t_stack **stackA)
+{
+	rotateFirstTwo(stackA);
+}
+
+void	sb(t_stack **stackB)
+{
+	rotateFirstTwo(stackB);
+
+void	ss(t_stack **stackA, t_stack stackB)
+{
+	sa(stackA);
+	sb(stackB);
 }
