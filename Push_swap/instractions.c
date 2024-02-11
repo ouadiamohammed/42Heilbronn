@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:12:09 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/11 22:01:29 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/11 22:16:28 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,21 @@ void	ss(t_stack **stackA, t_stack **stackB)
 {
 	sa(stackA);
 	sb(stackB);
+}
+
+void	push(t_stack **source, t_stack **destination)
+{
+	t_stack *temp;
+
+	if (*source == NULL)
+		ft_exit("Cannot push from an empty stack. \n", "");
+
+	temp = *source;
+	*source = (*source)->next;
+	temp->next = *destination;
+	*destination = temp;
+}
+void	pb(t_stack **stackA, t_stack **stackB)
+{
+	push(stackA, stackB);
 }
