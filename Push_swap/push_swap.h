@@ -16,13 +16,13 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <limits>
+# include <limits.h>
 
 typedef struct push_swap
 {
-    int *nbr;
-    
-}t_stuc;
+    int nbr;
+    struct push_swap *next;
+}t_stack;
 
 
 
