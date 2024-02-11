@@ -12,8 +12,8 @@
 
 #include "push_swap.h"
 
-// rotate the first two elements in the linked list
-void	rotateFirstTwo(t_stack **head)
+// rotate the first two elements in the linked list (sa|sb)
+void	rotateFirstTwo(t_stack **head, const char *inst)
 {
 	t_stack *temp;
 
@@ -24,26 +24,26 @@ void	rotateFirstTwo(t_stack **head)
 	*head = (*head)->next;
 	temp->next = (*head)->next;
 	(*head)->next = temp;
-	
+	ft_putstr(inst);
 }
 
-void	sa(t_stack **stackA)
-{
-	rotateFirstTwo(stackA);
-}
+// void	sa(t_stack **stackA)
+// {
+// 	rotateFirstTwo(stackA);
+// }
 
-void	sb(t_stack **stackB)
-{
-	rotateFirstTwo(stackB);
-}
+// void	sb(t_stack **stackB)
+// {
+// 	rotateFirstTwo(stackB);
+// }
 
 void	ss(t_stack **stackA, t_stack **stackB)
 {
-	sa(stackA);
-	sb(stackB);
+	rotateFirstTwo(stackA, "s");
+	rotateFirstTwo(stackB, "s\n");
 }
 
-void	push(t_stack **source, t_stack **destination)
+void	push(t_stack **source, t_stack **destination, const char *inst)
 {
 	t_stack *temp;
 
@@ -54,17 +54,18 @@ void	push(t_stack **source, t_stack **destination)
 	*source = (*source)->next;
 	temp->next = *destination;
 	*destination = temp;
+	ft_putstr(inst);
 }
-void	pa(t_stack **stackA, t_stack **stackB)
-{
-	push(stackB, stackA);
-}
-void	pb(t_stack **stackA, t_stack **stackB)
-{
-	push(stackA, stackB);
-}
+// void	pa(t_stack **stackA, t_stack **stackB)
+// {
+// 	push(stackB, stackA);
+// }
+// void	pb(t_stack **stackA, t_stack **stackB)
+// {
+// 	push(stackA, stackB);
+// }
 
-void rotateLinkedList(t_stack **head)
+void rotateLinkedList(t_stack **head, const char *inst)
 {
 	t_stack *temp;
 	t_stack *current;
@@ -80,22 +81,23 @@ void rotateLinkedList(t_stack **head)
 	while (current->next != NULL)
 		current = current->next;
 	current->next = temp;
+	ft_putstr(inst);
 }
 
-void	ra(t_stack **stackA)
-{
-	rotateLinkedList(stackA);
-}
-void	rb(t_stack **stackB)
-{
-	rotateLinkedList(stackB);
-}
+// void	ra(t_stack **stackA)
+// {
+// 	rotateLinkedList(stackA);
+// }
+// void	rb(t_stack **stackB)
+// {
+// 	rotateLinkedList(stackB);
+// }
 void rr(t_stack **stackA, t_stack **stackB)
 {
-	ra(stackA);
-    rb(stackB);
+	rotateLinkedList(stackA, "r");
+    rotateLinkedList(stackB, "r\n");
 }
-void	reverseRotateLinkedList(t_stack **head)
+void	reverseRotateLinkedList(t_stack **head, const char *inst)
 {
 	t_stack *temp;
 	t_stack *current;
@@ -104,25 +106,26 @@ void	reverseRotateLinkedList(t_stack **head)
 		ft_exit("Not enough elelmnts to reverse rotate. \n", "");
 
 	current = *head;
-	while (current->next != NULL)
+	while (current->next->next != NULL)
 		current = current->next;
 	temp = current->next;
 	current->next = NULL;
 	temp->next = *head;
 	*head = temp;
+	ft_putstr(inst);
 }
-void rra(t_stack **stackA)
-{
-    reverseRotateRight(stackA);
-}
+// void rra(t_stack **stackA)
+// {
+//     reverseRotateRight(stackA);
+// }
 
-void rrb(t_stack **stackB)
-{
-    reverseRotateRight(stackB);
-}
+// void rrb(t_stack **stackB)
+// {
+//     reverseRotateRight(stackB);
+// }
 
 void rrr(t_stack **stackA, t_stack **stackB)
 {
-    rra(stackA);
-    rrb(stackB);
+    reverseRotateLinkedList(stackA, "r");
+    reverseRotateLinkedList(stackB, "rr\n");
 }
