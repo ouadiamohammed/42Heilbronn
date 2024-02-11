@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:12:09 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/11 22:46:07 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/11 23:02:25 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,40 @@ void	ra(t_stack **stackA)
 void	rb(t_stack **stackB)
 {
 	rotateLinkedList(stackB);
+}
+void rr(t_stack **stackA, t_stack **stackB)
+{
+	ra(stackA);
+    rb(stackB);
+}
+void	reverseRotateLinkedList(t_stack **head)
+{
+	t_stack *temp;
+	t_stack *current;
+
+	if (*head == NULL || (*head)->next == NULL)
+		ft_exit("Not enough elelmnts to reverse rotate. \n", "");
+
+	current = *head;
+	while (current->next != NULL)
+		current = current->next;
+	temp = current->next;
+	current->next = NULL;
+	temp->next = *head;
+	*head = temp;
+}
+void rra(t_stack **stackA)
+{
+    reverseRotateRight(stackA);
+}
+
+void rrb(t_stack **stackB)
+{
+    reverseRotateRight(stackB);
+}
+
+void rrr(t_stack **stackA, t_stack **stackB)
+{
+    rra(stackA);
+    rrb(stackB);
 }
