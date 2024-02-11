@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:12:09 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/11 22:16:28 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/11 22:23:16 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void	push(t_stack **source, t_stack **destination)
 	*source = (*source)->next;
 	temp->next = *destination;
 	*destination = temp;
+}
+void	pa(t_stack **stackA, t_stack **stackB)
+{
+	push(stackB, stackA);
 }
 void	pb(t_stack **stackA, t_stack **stackB)
 {
