@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:12:09 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/11 22:23:16 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/11 22:46:07 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,31 @@ void	pa(t_stack **stackA, t_stack **stackB)
 void	pb(t_stack **stackA, t_stack **stackB)
 {
 	push(stackA, stackB);
+}
+
+void rotateLinkedList(t_stack **head)
+{
+	t_stack *temp;
+	t_stack *current;
+
+	if(*head == NULL || (*head)->next == NULL)
+		ft_exit("Not enough elemnts to rotate. \n", "");
+
+	temp = *head;
+	*head = (*head)->next;
+	temp->next = NULL;
+
+	current = *head;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = temp;
+}
+
+void	ra(t_stack **stackA)
+{
+	rotateLinkedList(stackA);
+}
+void	rb(t_stack **stackB)
+{
+	rotateLinkedList(stackB);
 }
