@@ -6,18 +6,32 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/09 21:37:31 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/15 19:11:53 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+int	ft_lstsize(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
 
 void ft_exit(const char* msg, const char *type)
 {
 	printf("%s%s\n",msg, type);
 	exit(0);
 }
-
+2
 t_stack	*ft_lstnew(int nbr)
 {
 	t_stack	*new_node;
@@ -167,10 +181,16 @@ t_stack  *push_swap_init (int ac, char **av)
 int main (int ac, char **av)
 {
 	t_stack *a;
+	int size;
+
     if (ac == 1)
         return (0);
 	a = push_swap_init(ac, av);
-
+	size = ft_lstsize(a);
+	if (size == 3)
+	{
+		
+	}
 	while (a)
 	{
 		printf("%d ", a->nbr);
