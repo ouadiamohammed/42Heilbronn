@@ -27,8 +27,14 @@ typedef struct push_swap
 
 void ft_exit(const char* msg, const char *type);
 
-
-
-
+void	rotateFirstTwo(t_stack **head, const char *inst);
+void	ss(t_stack **stackA, t_stack **stackB);
+void	push(t_stack **source, t_stack **destination, const char *inst);
+void rotateLinkedList(t_stack **head, const char *inst);
+void rr(t_stack **stackA, t_stack **stackB);
+void	reverseRotateLinkedList(t_stack **head, const char *inst);
+void rrr(t_stack **stackA, t_stack **stackB);
+void ft_putstr(const char *str);
+int	ft_lstsize(t_stack *lst);
 
 #endif

@@ -12,6 +12,12 @@
 
 #include "push_swap.h"
 
+void ft_putstr(const char *str)
+{
+	while (*str)
+		write(1, &*str++, 1);
+}
+
 // rotate the first two elements in the linked list (sa|sb)
 void	rotateFirstTwo(t_stack **head, const char *inst)
 {

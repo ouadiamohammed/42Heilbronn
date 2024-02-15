@@ -31,7 +31,7 @@ void ft_exit(const char* msg, const char *type)
 	printf("%s%s\n",msg, type);
 	exit(0);
 }
-2
+
 t_stack	*ft_lstnew(int nbr)
 {
 	t_stack	*new_node;
@@ -178,6 +178,17 @@ t_stack  *push_swap_init (int ac, char **av)
     return a;
 }
 
+int ft_check_sort(t_stack *cpy)
+{
+	while(cpy->next)
+	{
+		if (cpy->nbr > cpy->next->nbr)
+			return 1;
+		cpy = cpy->next;
+	}
+	return 0;
+}
+
 int main (int ac, char **av)
 {
 	t_stack *a;
@@ -187,9 +198,27 @@ int main (int ac, char **av)
         return (0);
 	a = push_swap_init(ac, av);
 	size = ft_lstsize(a);
-	if (size == 3)
+	if (size == 3 && ft_check_sort(a))
 	{
-		
+		if (a->nbr > a->next->nbr)
+		{
+			rotateFirstTwo(&a ,"sa");
+			if (ft_check_sort(a))
+				reverseRotateLinkedList(&a ,"rra");
+			if (ft_check_sort(a))
+				rotateFirstTwo(&a ,"sa");
+		}
+		if (a->nbr < a->next->nbr)
+		{
+			reverseRotateLinkedList(&a ,"rra");
+			if (ft_check_sort(a))
+				rotateFirstTwo(&a ,"sa");
+		}
+
+
+		// sa(321) sa(312) sa(213) rra(231) rra(132)
+		// rra(231) (132) 	  123	  123       sa(213)
+		// 123 									123
 	}
 	while (a)
 	{
