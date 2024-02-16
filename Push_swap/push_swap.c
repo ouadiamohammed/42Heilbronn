@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/15 19:11:53 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/16 21:17:59 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,42 +188,91 @@ int ft_check_sort(t_stack *cpy)
 	}
 	return 0;
 }
+int	smallest_node(t_stack *cpy)
+{
+	
+    if (cpy == NULL) {
+        return -1; 
+    }
+
+    int smallestIndex = 0;
+    int currentIndex = 0;
+    int minValue = cpy->nbr;
+
+    t_stack  *current = cpy->next;
+
+    while (current != NULL) {
+        if (current->nbr < minValue) {
+            minValue = current->nbr;
+            smallestIndex = currentIndex;
+        }
+        current = current->next;
+        currentIndex++;
+    }
+	printf("%d\n", smallestIndex);
+    return smallestIndex;
+}
+
+void	sort_three_int(t_stack **a)
+{
+	if ((*a)->nbr > (*a)->next->nbr)
+	{
+		rotateFirstTwo(a ,"sa");
+		if (ft_check_sort(*a))
+			reverseRotateLinkedList(a ,"rra");
+		if (ft_check_sort(*a))
+			rotateFirstTwo(a ,"sa");
+	}
+	else if ((*a)->nbr < (*a)->next->nbr)
+	{
+		reverseRotateLinkedList(a ,"rra");
+		if (ft_check_sort(*a))
+			rotateFirstTwo(a ,"sa");
+	}
+}
 
 int main (int ac, char **av)
 {
 	t_stack *a;
+	t_stack *b;
 	int size;
 
     if (ac == 1)
         return (0);
 	a = push_swap_init(ac, av);
 	size = ft_lstsize(a);
-	if (size == 3 && ft_check_sort(a))
+	if (size <= 3 && ft_check_sort(a))
 	{
-		if (a->nbr > a->next->nbr)
-		{
-			rotateFirstTwo(&a ,"sa");
-			if (ft_check_sort(a))
-				reverseRotateLinkedList(&a ,"rra");
-			if (ft_check_sort(a))
-				rotateFirstTwo(&a ,"sa");
-		}
-		if (a->nbr < a->next->nbr)
-		{
-			reverseRotateLinkedList(&a ,"rra");
-			if (ft_check_sort(a))
-				rotateFirstTwo(&a ,"sa");
-		}
-
-
+		sort_three_int(&a);
 		// sa(321) sa(312) sa(213) rra(231) rra(132)
 		// rra(231) (132) 	  123	  123       sa(213)
 		// 123 									123
 	}
+	else if (size <= 5 && ft_check_sort(a))
+	{
+		while (ft_lstsize(a) > 3)
+		{
+			printf("##################\n");
+			if (smallest_node(a) == 0)
+				push(&a, &b, "pb");
+			if (smallest_node(a) > 3)
+				reverseRotateLinkedList(&a, "rra");
+			else if (smallest_node(a) <= 3)
+				rotateLinkedList(&a, "ra");
+		}
+		sort_three_int(&a);
+	}
+	
 	while (a)
 	{
 		printf("%d ", a->nbr);
 		a = a->next;
+	}
+	printf("\n");
+	while (b)
+	{
+		printf("%d ", b->nbr);
+		b = b->next;
 	}
 	printf("\n");
 }

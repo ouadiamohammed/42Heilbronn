@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:12:09 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/11 23:02:25 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/16 20:14:58 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void ft_putstr(const char *str)
 {
 	while (*str)
 		write(1, &*str++, 1);
+	write(1, "\n", 1);
 }
 
 // rotate the first two elements in the linked list (sa|sb)
