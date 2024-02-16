@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/16 21:17:59 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/16 22:17:10 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,8 @@ int	smallest_node(t_stack *cpy)
     }
 
     int smallestIndex = 0;
-    int currentIndex = 0;
+	int smallIndex = 0;
+    int currentIndex = 1;
     int minValue = cpy->nbr;
 
     t_stack  *current = cpy->next;
@@ -204,13 +205,13 @@ int	smallest_node(t_stack *cpy)
     while (current != NULL) {
         if (current->nbr < minValue) {
             minValue = current->nbr;
+			smallIndex = smallestIndex;
             smallestIndex = currentIndex;
         }
         current = current->next;
         currentIndex++;
     }
-	printf("%d\n", smallestIndex);
-    return smallestIndex;
+    return smallestIndex > smallIndex && ft_lstsize(cpy) > 4 ? smallIndex : smallestIndex;
 }
 
 void	sort_three_int(t_stack **a)
@@ -252,27 +253,26 @@ int main (int ac, char **av)
 	{
 		while (ft_lstsize(a) > 3)
 		{
-			printf("##################\n");
 			if (smallest_node(a) == 0)
 				push(&a, &b, "pb");
-			if (smallest_node(a) > 3)
+			if (smallest_node(a) >= 3)
 				reverseRotateLinkedList(&a, "rra");
 			else if (smallest_node(a) <= 3)
 				rotateLinkedList(&a, "ra");
 		}
 		sort_three_int(&a);
+		push(&b, &a, "pa");
+		if (size != ft_lstsize(a))
+			push(&b, &a, "pa");
+		if (a->nbr > a->next->nbr)
+			rotateFirstTwo(&a, "ra");
+		
 	}
 	
 	while (a)
 	{
 		printf("%d ", a->nbr);
 		a = a->next;
-	}
-	printf("\n");
-	while (b)
-	{
-		printf("%d ", b->nbr);
-		b = b->next;
 	}
 	printf("\n");
 }
