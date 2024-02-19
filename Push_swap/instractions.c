@@ -55,7 +55,7 @@ void	push(t_stack **source, t_stack **destination, const char *inst)
 	t_stack *temp;
 
 	if (*source == NULL)
-		ft_exit("Cannot push from an empty stack. \n", "");
+		return ;
 
 	temp = *source;
 	*source = (*source)->next;
@@ -78,7 +78,7 @@ void rotateLinkedList(t_stack **head, const char *inst)
 	t_stack *current;
 
 	if(*head == NULL || (*head)->next == NULL)
-		ft_exit("Not enough elemnts to rotate. \n", "");
+		return ;
 
 	temp = *head;
 	*head = (*head)->next;
@@ -110,7 +110,7 @@ void	reverseRotateLinkedList(t_stack **head, const char *inst)
 	t_stack *current;
 
 	if (*head == NULL || (*head)->next == NULL)
-		ft_exit("Not enough elelmnts to reverse rotate. \n", "");
+		return ;
 
 	current = *head;
 	while (current->next->next != NULL)

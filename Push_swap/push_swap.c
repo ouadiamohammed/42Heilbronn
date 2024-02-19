@@ -183,10 +183,10 @@ int ft_check_sort(t_stack *cpy)
 	while(cpy->next)
 	{
 		if (cpy->nbr > cpy->next->nbr)
-			return 1;
+			return 0;
 		cpy = cpy->next;
 	}
-	return 0;
+	return 1;
 }
 int	smallest_node(t_stack *cpy)
 {
@@ -195,7 +195,6 @@ int	smallest_node(t_stack *cpy)
         return -1; 
     }
 
-    int smallestIndex = 0;
 	int smallIndex = 0;
     int currentIndex = 1;
     int minValue = cpy->nbr;
@@ -205,13 +204,12 @@ int	smallest_node(t_stack *cpy)
     while (current != NULL) {
         if (current->nbr < minValue) {
             minValue = current->nbr;
-			smallIndex = smallestIndex;
-            smallestIndex = currentIndex;
+			smallIndex = currentIndex;
         }
         current = current->next;
         currentIndex++;
     }
-    return smallestIndex > smallIndex && ft_lstsize(cpy) > 4 ? smallIndex : smallestIndex;
+    return smallIndex;
 }
 
 void	sort_three_int(t_stack **a)
@@ -232,47 +230,171 @@ void	sort_three_int(t_stack **a)
 	}
 }
 
+void sort_five_int(t_stack **a, t_stack **b, int size)
+{
+	while (ft_lstsize(*a) > 3)
+	{
+		if (smallest_node(*a) == 0)
+			// printf("--------------------%d----------------\n", (*a)->nbr), push(a, b, "pb");
+		if (smallest_node(*a) >= 3)
+			reverseRotateLinkedList(a, "rra");
+		else if (smallest_node(*a) < 3)
+			rotateLinkedList(a, "ra");
+	}
+	sort_three_int(a);
+	push(b, a, "pa");
+	if (size != ft_lstsize(*a))
+		push(b, a, "pa");
+	if ((*a)->nbr > (*a)->next->nbr)
+		rotateFirstTwo(a, "ra");
+}
+
+int *sort_stack_in_array(t_stack *a, int size)
+{
+	int *array = malloc(sizeof(t_stack) * size);
+	int i = 0;
+	int j;
+	int end;
+	int save;
+	
+	if (!array)
+		ft_exit("malloc failled", NULL);
+	while (a)
+	{
+		array[i] = a->nbr;
+		a = a->next;
+		i++;
+	}
+	end = i;
+	i = 0;
+	while (i < end)
+	{
+		j = i + 1;
+		while (j < end)
+		{
+			if (array[i] > array[j])
+			{
+				save = array[i];
+				array[i] = array[j];
+				array[j] = save;
+			}
+			j++;
+		}
+		i++;
+	}
+	i = 0;
+	while (i < end)
+	{
+		printf("%d ", array[i++]);
+	}
+		printf("\n\n");
+	
+
+	return array;
+}
+
+int ft_get_index(t_stack *a, int *array, int start, int end)
+{
+	int index = -1;
+	int i;
+
+
+	// printf("start = %d\n", start);
+	// printf("end = %d\n", end);
+
+	while (a)
+	{
+		i = start;
+		index++;
+		while (i < end)
+		{
+			if (array[i] == a->nbr)
+				return index;
+			i++;
+		}
+		a = a->next;
+	}
+
+	return index;
+}
+
 int main (int ac, char **av)
 {
 	t_stack *a;
 	t_stack *b;
 	int size;
+	int index;
 
     if (ac == 1)
         return (0);
 	a = push_swap_init(ac, av);
 	size = ft_lstsize(a);
-	if (size <= 3 && ft_check_sort(a))
+	if (size <= 3 && !ft_check_sort(a))
 	{
 		sort_three_int(&a);
 		// sa(321) sa(312) sa(213) rra(231) rra(132)
 		// rra(231) (132) 	  123	  123       sa(213)
 		// 123 									123
 	}
-	else if (size <= 5 && ft_check_sort(a))
+	else if (size <= 5 && !ft_check_sort(a))
+		sort_five_int(&a, &b, size);
+	else if (size > 5 && !ft_check_sort(a))
 	{
-		while (ft_lstsize(a) > 3)
-		{
-			if (smallest_node(a) == 0)
-				push(&a, &b, "pb");
-			if (smallest_node(a) >= 3)
-				reverseRotateLinkedList(&a, "rra");
-			else if (smallest_node(a) <= 3)
-				rotateLinkedList(&a, "ra");
-		}
-		sort_three_int(&a);
-		push(&b, &a, "pa");
-		if (size != ft_lstsize(a))
-			push(&b, &a, "pa");
-		if (a->nbr > a->next->nbr)
-			rotateFirstTwo(&a, "ra");
+		int size = ft_lstsize(a);
+		int *sorted_array = sort_stack_in_array(a, size);
+		int chunks;
+		int range;
+		int start = 0;
 		
+		if (size <= 10)
+			chunks = 5;
+		else if (size <= 150)
+			chunks = 10;
+		else
+			chunks = 20;
+		range = size / chunks;
+		printf("%d / %d = %d\n", size, chunks, range);
+		while (a)
+		{
+			// printf("size = %d\n", size);
+			index = ft_get_index(a, sorted_array, start, range + start);
+			printf("index = %d     start = %d     end = %d\n", index, start, range + start);
+			if (index >= ft_lstsize(a) / 2)
+			{
+				while (++index <= ft_lstsize(a))
+					reverseRotateLinkedList(&a, "rra");				
+			}
+			else
+			{
+				while (--index >= 0)
+					rotateLinkedList(&a, "ra");				
+			}
+			push(&a, &b, "pb");
+			if (size - start + 1 >= ft_lstsize(a))
+				start += 1;
+			
+			//5 6 2 8 4 100 99 88 77 11
+			//6 2 8 4 100 99 88 77 11 5
+			//2 8 4 100 99 88 77 11 5 6
+			//8 4 100 99 88 77 11 5 6
+			//4 100 99 88 77 11 5 6 8
+			//100 99 88 77 11 5 6 8
+			//8 100 99 88 77 11 5 6
+			//6 8 100 99 88 77 11 5
+			//5 6 8 100 99 88 77 11
+			//6 8 100 99 88 77 11
+		}
 	}
-	
 	while (a)
 	{
 		printf("%d ", a->nbr);
 		a = a->next;
+	}
+	printf("\n");
+	while (b)
+	{
+		printf("%d ", b->nbr);
+		b = b->next;
 	}
 	printf("\n");
 }
