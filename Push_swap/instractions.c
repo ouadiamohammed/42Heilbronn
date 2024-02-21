@@ -25,7 +25,7 @@ void	rotateFirstTwo(t_stack **head, const char *inst)
 	t_stack *temp;
 
 	if (*head == NULL || (*head)->next == NULL)
-		ft_exit("Not enough elements to rotate. \n", "");
+		return ;
 
 	temp = *head;
 	*head = (*head)->next;
