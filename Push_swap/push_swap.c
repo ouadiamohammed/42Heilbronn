@@ -336,12 +336,24 @@ int ft_get_pos(t_stack *a, int nbr)
 {
 	int i = 0;
 
-	while (a->nbr < nbr)
+	while (a)
 	{
 		i++;
 		a = a->next;
+		if (a == NULL)
+			break;
 	}
 	return i;
+}
+
+void ft_print_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		printf("%d ", stack->nbr);
+		stack = stack->next;
+	}
+	printf("\n");
 }
 
 int main (int ac, char **av)
@@ -376,13 +388,14 @@ int main (int ac, char **av)
 		if (size <= 10)
 			chunks = 5;
 		else if (size <= 100)
-			chunks = 5;
+			chunks = 6;
 		else
 			chunks = 11;
 		range = size / chunks;
 		// printf("%d / %d = %d\n", size, chunks, range);
 		while (a)
 		{
+			int back = 0;
 			// printf("size = %d\n", size);
 			index = ft_get_index(a, sorted_array, start, range + start);
 			// printf("index = %d     start = %d     end = %d\n", index, start, range + start);
@@ -397,86 +410,58 @@ int main (int ac, char **av)
 					rotateLinkedList(&a, "ra");				
 			}
 			push(&a, &b, "pb");
-			if (size - start + 1 >= ft_lstsize(a))
-				start += 1;
+			if (ft_lstsize(b) >= range + start)
+			{
+				while (back--)
+					reverseRotateLinkedList(&b, "rrb");				
+				start += range;
+			}
+			// ft_print_stack(b);
 		}
 		// printf("--------------------------------\n");
 		int j = 0;
 		while (b)
 		{
-			// int big = sorted_array[size - 1 - j];
-			// int sec_big = sorted_array[size - 2 - j];
-			// index = ft_big_index(b, big);
-			// // printf("big = %d   |  index = %d\n",big , index);
-			// if (index < ft_lstsize(b) / 2)
-			// {
-			// 	while (b->nbr != big)
-			// 	{
-			// 		if (b->nbr == sec_big)
-			// 		{
-			// 			push(&b, &a, "pa");
-			// 			sec = 1;
-			// 		}
-			// 		else
-			// 			rotateLinkedList(&b, "rb");
-			// 	}
-			// }
-			// else
-			// {
-			// 	while (b->nbr != big)
-			// 	{
-			// 		if (b->nbr == sec_big)
-			// 		{
-			// 			push(&b, &a, "pa");
-			// 			sec = 1;
-			// 		}
-			// 		else
-			// 			reverseRotateLinkedList(&b, "rrb");
-			// 	}
-			// }
-			// push(&b, &a, "pa");
-			// if (sec == 1)
-			// {
-			// 	sec = 0;
-			// 	if (a->nbr > a->next->nbr)
-			// 		rotateFirstTwo(&a, "sa");
-			// 	j++;
-			// }
-			// j++;
-			push(&b, &a, "pa");
-			if (!ft_check_sort(a))
+			int big = sorted_array[size - 1 - j];
+			int sec_big = sorted_array[size - 2 - j];
+			index = ft_big_index(b, big);
+			if (index < ft_lstsize(b) / 2)
 			{
-				int position = ft_get_pos(a->next, a->nbr);
-				int rr = 0;
-				while (position--)
+				while (b->nbr != big)
 				{
-					rotateFirstTwo(&a, "sa");
-					if (!ft_check_sort(a))
+					if (b->nbr == sec_big)
 					{
-						rotateLinkedList(&a, "ra");
-						rr++;
+						push(&b, &a, "pa");
+						sec = 1;
 					}
+					else
+						rotateLinkedList(&b, "rb");
 				}
-				while (rr--)
-					reverseRotateLinkedList(&a, "rra");
-								
-				//7 4 0 1 8 3 6 9 5           10 11 12 14 15 16 17 18 19 20 sa ra sa ra rra rra
-				//- - - - 8 3 6 9 5            0  1  4  7 10 11 12 14 15 16 17 18 19 20 sa
-				//- - - - - 3 6 9 5            0  1  4  7  8 10 11 12 14 15 16 17 18 19 20 sa ra sa ra sa ra sa ra rra rra rra rra
 			}
+			else
+			{
+				while (b->nbr != big)
+				{
+					if (b->nbr == sec_big)
+					{
+						push(&b, &a, "pa");
+						sec = 1;
+					}
+					else
+						reverseRotateLinkedList(&b, "rrb");
+				}
+			}
+			push(&b, &a, "pa");
+			if (sec == 1)
+			{
+				rotateFirstTwo(&a, "sa");
+				sec = 0;
+				j++;
+			}
+			j++;
 		}
 	}
-	while (a)
-	{
-		printf("%d ", a->nbr);
-		a = a->next;
-	}
-	printf("\n");
-	// while (b)
-	// {
-	// 	printf("%d ", b->nbr);
-	// 	b = b->next;
-	// }
-	// printf("\n");
+	
+	// ft_print_stack(a);
 	
 }
