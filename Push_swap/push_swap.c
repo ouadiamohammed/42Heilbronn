@@ -212,8 +212,20 @@ int	smallest_node(t_stack *cpy)
     return smallIndex;
 }
 
+void ft_print_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		printf("%d ", stack->nbr);
+		stack = stack->next;
+	}
+	printf("\n");
+}
+
 void	sort_three_int(t_stack **a)
 {
+	if (ft_check_sort(*a))
+		return ;
 	if ((*a)->nbr > (*a)->next->nbr)
 	{
 		rotateFirstTwo(a ,"sa");
@@ -230,29 +242,18 @@ void	sort_three_int(t_stack **a)
 	}
 }
 
-void ft_print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("%d ", stack->nbr);
-		stack = stack->next;
-	}
-	printf("\n");
-}
-
 void sort_five_int(t_stack **a, t_stack **b, int size)
 {
 	while (ft_lstsize(*a) > 3)
 	{
 		if (smallest_node(*a) == 0)
 			push(a, b, "pb");
-		if (smallest_node(*a) >= 3)
+		else if (smallest_node(*a) >= 3)
 			reverseRotateLinkedList(a, "rra");
 		else if (smallest_node(*a) < 3)
 			rotateLinkedList(a, "ra");
 	}
 	sort_three_int(a);
-	ft_print_stack(*a);
 	push(b, a, "pa");
 	if (size != ft_lstsize(*a))
 		push(b, a, "pa");
@@ -380,7 +381,6 @@ int main (int ac, char **av)
 		sort_five_int(&a, &b, size);
 	else if (size > 5 && !ft_check_sort(a))
 	{
-
 		int size = ft_lstsize(a);
 		int *sorted_array = sort_stack_in_array(a, size);
 		int chunks;
@@ -462,7 +462,5 @@ int main (int ac, char **av)
 			j++;
 		}
 	}
-	
 	ft_print_stack(a);
-	
 }
