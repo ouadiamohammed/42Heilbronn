@@ -37,7 +37,7 @@ void	push(t_stack **source, t_stack **destination, const char *inst)
 	ft_putstr(inst);
 }
 
-void	rotate_first_two(t_stack **head, const char *inst)
+void	rotateFirstTwo(t_stack **head, const char *inst)
 {
 	t_stack	*temp;
 

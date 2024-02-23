@@ -14,11 +14,11 @@
 
 void	ss(t_stack **stackA, t_stack **stackB)
 {
-	rotate_first_two(stackA, "s");
-	rotate_first_two(stackB, "s\n");
+	rotateFirstTwo(stackA, "s");
+	rotateFirstTwo(stackB, "s\n");
 }
 
-void	rotate_linked_list(t_stack **head, const char *inst)
+void	rotateLinkedList(t_stack **head, const char *inst)
 {
 	t_stack	*temp;
 	t_stack	*current;
@@ -37,11 +37,11 @@ void	rotate_linked_list(t_stack **head, const char *inst)
 
 void	rr(t_stack **stackA, t_stack **stackB)
 {
-	rotate_linked_list(stackA, "r");
-	rotate_linked_list(stackB, "r\n");
+	rotateLinkedList(stackA, "r");
+	rotateLinkedList(stackB, "r\n");
 }
 
-void	reverse_rotate_linked_list(t_stack **head, const char *inst)
+void	reverseRotateLinkedList(t_stack **head, const char *inst)
 {
 	t_stack	*temp;
 	t_stack	*current;
@@ -60,6 +60,6 @@ void	reverse_rotate_linked_list(t_stack **head, const char *inst)
 
 void	rrr(t_stack **stackA, t_stack **stackB)
 {
-	reverse_rotate_linkedList(stackA, "r");
-	reverse_rotate_linkedList(stackB, "rr\n");
+	reverseRotateLinkedList(stackA, "r");
+	reverseRotateLinkedList(stackB, "rr\n");
 }
