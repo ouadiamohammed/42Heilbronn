@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/22 20:43:22 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/23 23:20:59 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -362,7 +362,7 @@ int ft_get_pos(t_stack *a, int nbr)
 int main (int ac, char **av)
 {
 	t_stack *a;
-	t_stack *b;
+	t_stack *b = malloc(sizeof(t_stack));
 	int size;
 	int index;
 
@@ -461,6 +461,7 @@ int main (int ac, char **av)
 			}
 			j++;
 		}
+		free(sorted_array);
 	}
-	ft_print_stack(a);
+	//ft_print_stack(a);
 }
