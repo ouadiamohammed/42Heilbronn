@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/23 23:20:59 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/23 23:37:10 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -412,14 +412,10 @@ int main (int ac, char **av)
 			}
 			push(&a, &b, "pb");
 			if (ft_lstsize(b) >= range + start)
-			{
-				printf("###############\n");
-				while (back--)
-					reverseRotateLinkedList(&b, "rrb");				
+			{				
 				start += range;
 			}
 		}
-		// printf("--------------------------------\n");
 		int j = 0;
 		while (b)
 		{
