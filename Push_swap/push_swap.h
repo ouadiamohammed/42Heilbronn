@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 21:02:41 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/25 13:27:40 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/25 14:25:33 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,6 @@ typedef struct	push_swap
 	struct push_swap	*next;
 }t_stack;
 
-typedef struct	s_main_variables
-{
-	t_stack		*a;
-	t_stack		*b;
-	int			size;
-	int			index;
-	int			*sorted_array;
-	int			chunks;
-	int			range;
-	int			sec;
-	int			start;
-	int			big;
-	int			sec_big;
-}				t_main_variables;
 
 void	ft_exit(const char *msg, const char *type);
 
