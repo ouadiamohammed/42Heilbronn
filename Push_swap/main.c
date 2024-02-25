@@ -6,103 +6,98 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 12:38:28 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/25 12:39:07 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/25 14:21:25 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main (int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack *a;
-	t_stack *b;
-	int size;
-	int index;
+	t_main_variables vars;
 
-    if (ac == 1)
-        return (0);
-	a = push_swap_init(ac, av);
-	size = ft_lstsize(a);
-	if (size <= 3 && !ft_check_sort(a))
-		sort_three_int(&a);
-	else if (size <= 5 && !ft_check_sort(a))
-		sort_five_int(&a, &b, size);
-	else if (size > 5 && !ft_check_sort(a))
+	if (ac == 1)
+		return (0);
+	vars.a = push_swap_init(ac, av);
+	vars.size = ft_lstsize(vars.a);
+	if (vars.size <= 3 && !ft_check_sort(vars.a))
+		sort_three_int(&vars.a);
+	else if (vars.size <= 5 && !ft_check_sort(vars.a))
+		sort_five_int(&vars.a, &vars.b, vars.size);
+	else if (vars.size > 5 && !ft_check_sort(vars.a))
 	{
-		int size = ft_lstsize(a);
-		int *sorted_array = sort_stack_in_array(a, size);
-		int chunks;
-		int range;
-		int sec = 0;
-		int start = 0;
+		vars.size = ft_lstsize(vars.a);
+		vars.sorted_array = sort_stack_in_array(vars.a, vars.size);
+		vars.sec = 0;
+		vars.start = 0;
 		
-		if (size <= 100)
-			chunks = 6;
+		if (vars.size <= 100)
+			vars.chunks = 6;
 		else
-			chunks = 11;
-		range = size / chunks;
-		while (a)
+			vars.chunks = 11;
+		vars.range = vars.size / vars.chunks;
+		while (vars.a)
 		{
 			int back = 0;
-			index = ft_get_index(a, sorted_array, start, range + start);
-			if (index >= ft_lstsize(a) / 2)
+			vars.index = ft_get_index(vars.a, vars.sorted_array, vars.start, vars.range + vars.start);
+			if (vars.index >= ft_lstsize(vars.a) / 2)
 			{
-				while (++index <= ft_lstsize(a))
-					reverse_rotate_linked_list(&a, "rra");				
+				while (++vars.index <= ft_lstsize(vars.a))
+					reverse_rotate_linked_list(&vars.a, "rra");				
 			}
 			else
 			{
-				while (--index >= 0)
-					rotate_linked_list(&a, "ra");				
+				while (--vars.index >= 0)
+					rotate_linked_list(&vars.a, "ra");				
 			}
-			push(&a, &b, "pb");
-			if (ft_lstsize(b) >= range + start)
+			push(&vars.a, &vars.b, "pb");
+			if (ft_lstsize(vars.b) >= vars.range + vars.start)
 			{				
-				start += range;
+				vars.start += vars.range;
 			}
 		}
 		int j = 0;
-		while (b)
+		while (vars.b)
 		{
-			int big = sorted_array[size - 1 - j];
-			int sec_big = sorted_array[size - 2 - j];
-			index = ft_big_index(b, big);
-			if (index < ft_lstsize(b) / 2)
+			vars.big = vars.sorted_array[vars.size - 1 - j];
+			vars.sec_big = vars.sorted_array[vars.size - 2 - j];
+			vars.index = ft_big_index(vars.b, vars.big);
+			if (vars.index < ft_lstsize(vars.b) / 2)
 			{
-				while (b->nbr != big)
+				while (vars.b->nbr != vars.big)
 				{
-					if (b->nbr == sec_big)
+					if (vars.b->nbr == vars.sec_big)
 					{
-						push(&b, &a, "pa");
-						sec = 1;
+						push(&vars.b, &vars.a, "pa");
+						vars.sec = 1;
 					}
 					else
-						rotate_linked_list(&b, "rb");
+						rotate_linked_list(&vars.b, "rb");
 				}
 			}
 			else
 			{
-				while (b->nbr != big)
+				while (vars.b->nbr != vars.big)
 				{
-					if (b->nbr == sec_big)
+					if (vars.b->nbr == vars.sec_big)
 					{
-						push(&b, &a, "pa");
-						sec = 1;
+						push(&vars.b, &vars.a, "pa");
+						vars.sec = 1;
 					}
 					else
-						reverse_rotate_linked_list(&b, "rrb");
+						reverse_rotate_linked_list(&vars.b, "rrb");
 				}
 			}
-			push(&b, &a, "pa");
-			if (sec == 1)
+			push(&vars.b, &vars.a, "pa");
+			if (vars.sec == 1)
 			{
-				rotate_first_two(&a, "sa");
-				sec = 0;
+				rotate_first_two(&vars.a, "sa");
+				vars.sec = 0;
 				j++;
 			}
 			j++;
 		}
-		free(sorted_array);
+		free(vars.sorted_array);
 	}
-	ft_print_stack(a);
+	// ft_print_stack(vars.a);
 }
