@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:14:04 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/22 21:26:01 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/25 12:30:21 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 * ft_putstr: this function prints a string
 * @str: string
-* return: Void
+* Return: Void
 */
 void	ft_putstr(const char *str)
 {
@@ -24,6 +24,12 @@ void	ft_putstr(const char *str)
 	write(1, "\n", 1);
 }
 
+/*
+* push:	it pushes data from source to destination
+* @source: source stack.
+* @destination: destination stack.
+* Return: void.
+*/
 void	push(t_stack **source, t_stack **destination, const char *inst)
 {
 	t_stack	*temp;
@@ -36,8 +42,11 @@ void	push(t_stack **source, t_stack **destination, const char *inst)
 	*destination = temp;
 	ft_putstr(inst);
 }
+/*
+*
+*/
 
-void	rotateFirstTwo(t_stack **head, const char *inst)
+void	rotate_first_two(t_stack **head, const char *inst)
 {
 	t_stack	*temp;
 

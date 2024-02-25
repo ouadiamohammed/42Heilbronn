@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:12:09 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/22 21:19:42 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/02/25 12:33:18 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ss(t_stack **stackA, t_stack **stackB)
 {
-	rotateFirstTwo(stackA, "s");
-	rotateFirstTwo(stackB, "s\n");
+	rotate_first_two(stackA, "s");
+	rotate_first_two(stackB, "s\n");
 }
 
-void	rotateLinkedList(t_stack **head, const char *inst)
+void	rotate_linked_list(t_stack **head, const char *inst)
 {
 	t_stack	*temp;
 	t_stack	*current;
@@ -37,11 +37,11 @@ void	rotateLinkedList(t_stack **head, const char *inst)
 
 void	rr(t_stack **stackA, t_stack **stackB)
 {
-	rotateLinkedList(stackA, "r");
-	rotateLinkedList(stackB, "r\n");
+	rotate_linked_list(stackA, "r");
+	rotate_linked_list(stackB, "r\n");
 }
 
-void	reverseRotateLinkedList(t_stack **head, const char *inst)
+void	reverse_rotate_linked_list(t_stack **head, const char *inst)
 {
 	t_stack	*temp;
 	t_stack	*current;
@@ -60,6 +60,6 @@ void	reverseRotateLinkedList(t_stack **head, const char *inst)
 
 void	rrr(t_stack **stackA, t_stack **stackB)
 {
-	reverseRotateLinkedList(stackA, "r");
-	reverseRotateLinkedList(stackB, "rr\n");
+	reverse_rotate_linked_list(stackA, "r");
+	reverse_rotate_linked_list(stackB, "rr\n");
 }
