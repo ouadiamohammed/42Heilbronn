@@ -18,11 +18,26 @@
 # include <stdlib.h>
 # include <limits.h>
 
+typedef struct	s_var
+{
+	int		size;
+	int		index;
+	int		*sorted_array;
+	int		chunks;
+	int		range;
+	int		sec;
+	int		start;
+	int		j;
+	int		big;
+	int		sec_big;
+
+} 	t_var;
+
 typedef struct	push_swap
 {
 	int					nbr;
 	struct push_swap	*next;
-}t_stack;
+}	t_stack;
 
 
 void	ft_exit(const char *msg, const char *type);
