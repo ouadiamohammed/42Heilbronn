@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 21:02:41 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/25 14:25:33 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/02 00:38:09 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,16 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstnew(int nbr);
 void	ft_exit(const char *msg, const char *type);
 int		ft_lstsize(t_stack *lst);
+
+/*main function*/
+void	the_else_condition(t_stack **a, t_stack **b, t_var *var);
+void	b_to_a_conditions(t_stack **a, t_stack **b, t_var *var);
+void	b_to_a(t_stack **a, t_stack **b, t_var *var);
+void	a_to_b(t_stack **a, t_stack **b, t_var *var);
+/*sort_algo functions*/
+void	sort_three_int(t_stack **a);
+void    sort_five_int(t_stack **a, t_stack **b, int size);
+void	sort_more_than_five(t_stack **a, t_stack **b, t_var *var);
+
 
 #endif

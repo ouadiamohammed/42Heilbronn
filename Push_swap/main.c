@@ -6,13 +6,13 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 12:38:28 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/25 14:25:23 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/02 00:26:56 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void the_else_condition(t_stack **a, t_stack **b, t_var *var)
+void	the_else_condition(t_stack **a, t_stack **b, t_var *var)
 {
 	while ((*b)->nbr != var->big)
 	{
@@ -26,7 +26,7 @@ void the_else_condition(t_stack **a, t_stack **b, t_var *var)
 	}
 }
 
-void b_to_a_conditions(t_stack **a, t_stack **b, t_var *var)
+void	b_to_a_conditions(t_stack **a, t_stack **b, t_var *var)
 {
 	if (var->index < ft_lstsize(*b) / 2)
 	{
@@ -45,7 +45,7 @@ void b_to_a_conditions(t_stack **a, t_stack **b, t_var *var)
 		the_else_condition(a, b, var);
 }
 
-void b_to_a(t_stack **a, t_stack **b, t_var *var)
+void	b_to_a(t_stack **a, t_stack **b, t_var *var)
 {
 	while (*b)
 	{
@@ -63,20 +63,22 @@ void b_to_a(t_stack **a, t_stack **b, t_var *var)
 		var->j++;
 	}
 }
-void a_to_b(t_stack **a, t_stack **b, t_var *var)
+
+void	a_to_b(t_stack **a, t_stack **b, t_var *var)
 {
 	while (*a)
 	{
-		var->index = ft_get_index(*a, var->sorted_array, var->start, var->range + var->start);
+		var->index = ft_get_index(*a, var->sorted_array, var->start,
+				var->range + var->start);
 		if (var->index >= ft_lstsize(*a) / 2)
 		{
 			while (++var->index <= ft_lstsize(*a))
-				reverse_rotate_linked_list(a, "rra");				
+				reverse_rotate_linked_list(a, "rra");
 		}
 		else
 		{
 			while (--var->index >= 0)
-				rotate_linked_list(a, "ra");				
+				rotate_linked_list(a, "ra");
 		}
 		push(a, b, "pb");
 		if (ft_lstsize(*b) >= var->range + var->start)
@@ -86,23 +88,6 @@ void a_to_b(t_stack **a, t_stack **b, t_var *var)
 	}
 }
 
-void sort_more_than_five(t_stack **a, t_stack **b, t_var *var)
-{
-	var->size = ft_lstsize(*a);
-	var->sorted_array = sort_stack_in_array(*a, var->size);
-	var->sec = 0;
-	var->start = 0;
-	var->j = 0;
-	
-	if (var->size <= 100)
-		var->chunks = 6;
-	else
-		var->chunks = 11;
-	var->range = var->size / var->chunks;
-	a_to_b(a, b, var);
-	b_to_a(a, b, var);
-	free(var->sorted_array);
-}
 
 int	main(int ac, char **av)
 {

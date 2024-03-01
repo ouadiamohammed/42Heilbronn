@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/02/25 12:39:43 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/02 00:28:18 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,45 +220,6 @@ void ft_print_stack(t_stack *stack)
 		stack = stack->next;
 	}
 	printf("\n");
-}
-
-void	sort_three_int(t_stack **a)
-{
-	if (ft_check_sort(*a))
-		return ;
-	if ((*a)->nbr > (*a)->next->nbr)
-	{
-		rotate_first_two(a ,"sa");
-		if (!ft_check_sort(*a))
-			reverse_rotate_linked_list(a ,"rra");
-		if (!ft_check_sort(*a))
-			rotate_first_two(a ,"sa");
-	}
-	else if ((*a)->nbr < (*a)->next->nbr)
-	{
-		reverse_rotate_linked_list(a ,"rra");
-		if (!ft_check_sort(*a))
-			rotate_first_two(a ,"sa");
-	}
-}
-
-void sort_five_int(t_stack **a, t_stack **b, int size)
-{
-	while (ft_lstsize(*a) > 3)
-	{
-		if (smallest_node(*a) == 0)
-			push(a, b, "pb");
-		else if (smallest_node(*a) >= 3)
-			reverse_rotate_linked_list(a, "rra");
-		else if (smallest_node(*a) < 3)
-			rotate_linked_list(a, "ra");
-	}
-	sort_three_int(a);
-	push(b, a, "pa");
-	if (size != ft_lstsize(*a))
-		push(b, a, "pa");
-	if ((*a)->nbr > (*a)->next->nbr)
-		rotate_first_two(a, "ra");
 }
 
 int *sort_stack_in_array(t_stack *a, int size)
