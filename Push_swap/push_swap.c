@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/02 00:28:18 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/02 01:23:16 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,18 +291,4 @@ int ft_big_index(t_stack *b, int big)
 		b = b->next;
 	}
 	return index;
-}
-
-int ft_get_pos(t_stack *a, int nbr)
-{
-	int i = 0;
-
-	while (a)
-	{
-		i++;
-		a = a->next;
-		if (a == NULL)
-			break;
-	}
-	return i;
 }
