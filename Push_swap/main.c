@@ -66,6 +66,7 @@ void	b_to_a(t_stack **a, t_stack **b, t_var *var)
 
 void	a_to_b(t_stack **a, t_stack **b, t_var *var)
 {
+	
 	while (*a)
 	{
 		var->index = ft_get_index(*a, var->sorted_array, var->start,

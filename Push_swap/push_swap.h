@@ -63,7 +63,7 @@ int		ft_check_sort(t_stack *cpy);
 t_stack	*push_swap_init(int ac, char **av);
 char	*ft_strchr(const char *s, int c);
 void	ft_adv_atoi(char *str, t_stack **a);
-int		ft_atoi(const char *str);
+int		ft_atoi(char *str);
 int		ft_isdigit(int c);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstnew(int nbr);

@@ -79,11 +79,27 @@ static int	white_space(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+void atoi_boucle(char *str, int *num)
+{
+	int	digit;
+
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			ft_exit("error in ", str);
+		*num *= 10;
+		digit = (int)(*str - '0');
+		if (digit < 0)
+			digit = -digit;
+		*num += digit;
+		str++;
+	}
+}
+
+int	ft_atoi(char *str)
 {
 	int	num;
 	int	sign;
-	int	digit;
 
 	num = 0;
 	sign = 1;
@@ -95,50 +111,44 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			ft_exit("error in ", str);
-		num *= 10;
-		digit = (int)(*str - '0');
-		if (digit < 0)
-			digit = -digit;
-		num += digit;
-		str++;
-	}
+	atoi_boucle(str, &num);
 	return (num * sign);
 }
 
-void	ft_adv_atoi(char *str, t_stack **a)
+void adv_atoi_cond(t_stack **a, char *str)
 {
 	int	num;
 	int	sign;
 
 	num = 0;
 	sign = 1;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	if (!ft_isdigit(*str))
+		ft_exit("adv_error in ", str);
+	num = num * 10 + *str - '0';
+	str++;
+	if (*str == ' ' || *str == '\0')
+	{
+		ft_lstadd_back(a, ft_lstnew(num * sign));
+		sign = 1;
+		num = 0;
+	}
+}
 
+void	ft_adv_atoi(char *str, t_stack **a)
+{
 	while (white_space(*str))
 		str++;
 	while (*str)
 	{
 		while (white_space(*str))
 			str++;
-		if (*str == '-' || *str == '+')
-		{
-			if (*str == '-')
-				sign = -1;
-			str++;
-		}
-		if (!ft_isdigit(*str))
-			ft_exit("adv_error in ", str);
-		num = num * 10 + *str - '0';
-		str++;
-		if (*str == ' ' || *str == '\0')
-		{
-			ft_lstadd_back(a, ft_lstnew(num * sign));
-			sign = 1;
-			num = 0;
-		}
+		adv_atoi_cond(a, str);
 	}
 }
 
@@ -152,9 +162,7 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c1)
-		{
 			return ((char *)s + i);
-		}
 		i++;
 	}
 	if (c1 == '\0')
@@ -164,7 +172,7 @@ char	*ft_strchr(const char *s, int c)
 
 t_stack  *push_swap_init (int ac, char **av)
 {
-	t_stack *a = NULL;
+	t_stack *a;
 
     int i = 1;
 	while (i < ac)
@@ -222,23 +230,12 @@ void ft_print_stack(t_stack *stack)
 	printf("\n");
 }
 
-int *sort_stack_in_array(t_stack *a, int size)
+void sorting_array(int *array, int end)
 {
-	int *array = malloc(sizeof(t_stack) * size);
-	int i = 0;
+	int i;
 	int j;
-	int end;
 	int save;
-	
-	if (!array)
-		ft_exit("malloc failled", NULL);
-	while (a)
-	{
-		array[i] = a->nbr;
-		a = a->next;
-		i++;
-	}
-	end = i;
+
 	i = 0;
 	while (i < end)
 	{
@@ -255,6 +252,24 @@ int *sort_stack_in_array(t_stack *a, int size)
 		}
 		i++;
 	}
+}
+
+int *sort_stack_in_array(t_stack *a, int size)
+{
+	int *array = malloc(sizeof(t_stack) * size);
+	int i = 0;
+	int end;
+	
+	if (!array)
+		ft_exit("malloc failled", NULL);
+	while (a)
+	{
+		array[i] = a->nbr;
+		a = a->next;
+		i++;
+	}
+	end = i;
+	sorting_array(array, end);
 	return array;
 }
 
