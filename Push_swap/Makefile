@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/02 01:09:16 by mouadia           #+#    #+#              #
-#    Updated: 2024/03/02 01:15:24 by mouadia          ###   ########.fr        #
+#    Created: 2024/03/04 12:04:55 by mouadia           #+#    #+#              #
+#    Updated: 2024/03/04 12:16:22 by mouadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer -g
 
 RM = rm -f
 
-SRC = functions.c instractions.c main.c push_swap.c sort_algo.c
+SRC = functions.c instractions.c main.c push_swap.c sort_algo.c ft_atoi.c ft_linked_list.c
 
 OBJ = $(SRC:.c=.o)
 
