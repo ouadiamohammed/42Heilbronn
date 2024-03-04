@@ -6,12 +6,11 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/02 01:23:16 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/04 11:38:53 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	ft_lstsize(t_stack *lst)
 {
@@ -26,9 +25,9 @@ int	ft_lstsize(t_stack *lst)
 	return (i);
 }
 
-void ft_exit(const char* msg, const char *type)
+void	ft_exit(const char *msg, const char *type)
 {
-	printf("%s%s\n",msg, type);
+	printf("%s%s\n" ,msg, type);
 	exit(0);
 }
 
@@ -43,6 +42,7 @@ t_stack	*ft_lstnew(int nbr)
 	new_node->next = NULL;
 	return (new_node);
 }
+
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*last_node;
@@ -55,7 +55,7 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		while (last_node->next != NULL)
 		{
 			if (last_node->nbr == new->nbr)
-				ft_exit("err duplicat","");
+				ft_exit("err duplicat", "");
 			last_node = last_node->next;
 		}
 		if (last_node->nbr == new->nbr)
@@ -174,7 +174,7 @@ t_stack  *push_swap_init (int ac, char **av)
 {
 	t_stack *a;
 
-    int i = 1;
+	int i = 1;
 	while (i < ac)
 	{
 		if (ft_strchr(av[i], ' '))
@@ -183,7 +183,7 @@ t_stack  *push_swap_init (int ac, char **av)
 			ft_lstadd_back(&a, ft_lstnew(ft_atoi(av[i])));
 		i++;
 	}
-    return a;
+	return a;
 }
 
 int ft_check_sort(t_stack *cpy)
@@ -199,25 +199,25 @@ int ft_check_sort(t_stack *cpy)
 int	smallest_node(t_stack *cpy)
 {
 	
-    if (cpy == NULL) {
-        return -1; 
-    }
+	if (cpy == NULL) {
+		return -1; 
+	}
 
 	int smallIndex = 0;
-    int currentIndex = 1;
-    int minValue = cpy->nbr;
+	int currentIndex = 1;
+	int minValue = cpy->nbr;
 
-    t_stack  *current = cpy->next;
+	t_stack  *current = cpy->next;
 
-    while (current != NULL) {
-        if (current->nbr < minValue) {
-            minValue = current->nbr;
+	while (current != NULL) {
+		if (current->nbr < minValue) {
+			minValue = current->nbr;
 			smallIndex = currentIndex;
-        }
-        current = current->next;
-        currentIndex++;
-    }
-    return smallIndex;
+		}
+		current = current->next;
+		currentIndex++;
+	}
+	return smallIndex;
 }
 
 void ft_print_stack(t_stack *stack)

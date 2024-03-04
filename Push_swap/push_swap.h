@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 21:02:41 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/02 00:38:09 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/04 11:48:23 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	reverse_rotate_linked_list(t_stack **head, const char *inst);
 void	rrr(t_stack **stackA, t_stack **stackB);
 void	ft_putstr(const char *str);
 int		ft_lstsize(t_stack *lst);
-int		ft_get_pos(t_stack *a, int nbr);
 int		ft_big_index(t_stack *b, int big);
 int		ft_get_index(t_stack *a, int *array, int start, int end);
 int		*sort_stack_in_array(t_stack *a, int size);

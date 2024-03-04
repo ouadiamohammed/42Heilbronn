@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 12:38:28 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/02 00:26:56 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/04 11:25:44 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	b_to_a(t_stack **a, t_stack **b, t_var *var)
 
 void	a_to_b(t_stack **a, t_stack **b, t_var *var)
 {
-	
 	while (*a)
 	{
 		var->index = ft_get_index(*a, var->sorted_array, var->start,
@@ -88,7 +87,6 @@ void	a_to_b(t_stack **a, t_stack **b, t_var *var)
 		}
 	}
 }
-
 
 int	main(int ac, char **av)
 {
