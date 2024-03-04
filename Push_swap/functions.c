@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:14:04 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/04 11:24:35 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:23:42 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,3 +44,29 @@ void	rotate_first_two(t_stack **head, const char *inst)
 	(*head)->next = temp;
 	ft_putstr(inst);
 }
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	int		i;
+	char	c1;
+
+	i = 0;
+	c1 = (char)c;
+	while (s[i])
+	{
+		if (s[i] == c1)
+			return ((char *)s + i);
+		i++;
+	}
+	if (c1 == '\0')
+		return ((char *)s + i);
+	return (0);
+}
+
