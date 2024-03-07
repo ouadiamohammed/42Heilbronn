@@ -6,17 +6,11 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/04 12:23:35 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/07 06:07:49 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_exit(const char *msg, const char *type)
-{
-	printf("%s%s\n" ,msg, type);
-	exit(0);
-}
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
@@ -34,16 +28,17 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 			last_node = last_node->next;
 		}
 		if (last_node->nbr == new->nbr)
-			ft_exit("err duplicat","");
+			ft_exit("err duplicat", "");
 		last_node->next = new;
 	}
 }
 
-t_stack  *push_swap_init (int ac, char **av)
+t_stack	*push_swap_init(int ac, char **av)
 {
-	t_stack *a;
+	t_stack	*a;
+	int		i;
 
-	int i = 1;
+	i = 1;
 	while (i < ac)
 	{
 		if (ft_strchr(av[i], ' '))
@@ -52,39 +47,17 @@ t_stack  *push_swap_init (int ac, char **av)
 			ft_lstadd_back(&a, ft_lstnew(ft_atoi(av[i])));
 		i++;
 	}
-	return a;
+	return (a);
 }
 
-void sorting_array(int *array, int end)
+int	*sort_stack_in_array(t_stack *a, int size)
 {
-	int i;
-	int j;
-	int save;
+	int	*array;
+	int	i;
+	int	end;
 
+	array = malloc(sizeof(t_stack) * size);
 	i = 0;
-	while (i < end)
-	{
-		j = i + 1;
-		while (j < end)
-		{
-			if (array[i] > array[j])
-			{
-				save = array[i];
-				array[i] = array[j];
-				array[j] = save;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-int *sort_stack_in_array(t_stack *a, int size)
-{
-	int *array = malloc(sizeof(t_stack) * size);
-	int i = 0;
-	int end;
-	
 	if (!array)
 		ft_exit("malloc failled", NULL);
 	while (a)
@@ -95,14 +68,15 @@ int *sort_stack_in_array(t_stack *a, int size)
 	}
 	end = i;
 	sorting_array(array, end);
-	return array;
+	return (array);
 }
 
-int ft_get_index(t_stack *a, int *array, int start, int end)
+int	ft_get_index(t_stack *a, int *array, int start, int end)
 {
-	int index = -1;
-	int i;
+	int	index;
+	int	i;
 
+	index = -1;
 	while (a)
 	{
 		i = start;
@@ -110,25 +84,25 @@ int ft_get_index(t_stack *a, int *array, int start, int end)
 		while (i < end)
 		{
 			if (array[i] == a->nbr)
-				return index;
+				return (index);
 			i++;
 		}
 		a = a->next;
 	}
-
-	return index;
+	return (index);
 }
 
-int ft_big_index(t_stack *b, int big)
+int	ft_big_index(t_stack *b, int big)
 {
-	int index = 0;
+	int	index;
 
+	index = 0;
 	while (b)
 	{
 		if (b->nbr == big)
-			break;
+			break ;
 		index++;
 		b = b->next;
 	}
-	return index;
+	return (index);
 }

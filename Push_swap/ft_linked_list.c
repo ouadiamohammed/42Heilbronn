@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 12:12:48 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/04 12:19:24 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/07 05:51:56 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_stack	*ft_lstnew(int nbr)
 	new_node->next = NULL;
 	return (new_node);
 }
+
 int	ft_lstsize(t_stack *lst)
 {
 	int	i;
@@ -38,29 +39,31 @@ int	ft_lstsize(t_stack *lst)
 
 int	smallest_node(t_stack *cpy)
 {
-	
-	if (cpy == NULL) {
-		return -1; 
-	}
+	int		small_index;
+	int		current_index;
+	int		min_value;
+	t_stack	*current;
 
-	int smallIndex = 0;
-	int currentIndex = 1;
-	int minValue = cpy->nbr;
-
-	t_stack  *current = cpy->next;
-
-	while (current != NULL) {
-		if (current->nbr < minValue) {
-			minValue = current->nbr;
-			smallIndex = currentIndex;
+	small_index = 0;
+	current_index = 1;
+	min_value = cpy->nbr;
+	current = cpy->next;
+	if (cpy == NULL)
+		return (-1);
+	while (current != NULL)
+	{
+		if (current->nbr < min_value)
+		{
+			min_value = current->nbr;
+			small_index = current_index;
 		}
 		current = current->next;
-		currentIndex++;
+		current_index++;
 	}
-	return smallIndex;
+	return (small_index);
 }
 
-void ft_print_stack(t_stack *stack)
+void	ft_print_stack(t_stack *stack)
 {
 	while (stack)
 	{
@@ -70,13 +73,13 @@ void ft_print_stack(t_stack *stack)
 	printf("\n");
 }
 
-int ft_check_sort(t_stack *cpy)
+int	ft_check_sort(t_stack *cpy)
 {
-	while(cpy->next)
+	while (cpy->next)
 	{
 		if (cpy->nbr > cpy->next->nbr)
-			return 0;
+			return (0);
 		cpy = cpy->next;
 	}
-	return 1;
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 00:27:01 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/02 00:42:52 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/07 05:57:18 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,32 @@ void	sort_more_than_five(t_stack **a, t_stack **b, t_var *var)
 	a_to_b(a, b, var);
 	b_to_a(a, b, var);
 	free(var->sorted_array);
+}
+void	ft_exit(const char *msg, const char *type)
+{
+	printf("%s%s\n" ,msg, type);
+	exit(0);
+}
+void sorting_array(int *array, int end)
+{
+	int i;
+	int j;
+	int save;
+
+	i = 0;
+	while (i < end)
+	{
+		j = i + 1;
+		while (j < end)
+		{
+			if (array[i] > array[j])
+			{
+				save = array[i];
+				array[i] = array[j];
+				array[j] = save;
+			}
+			j++;
+		}
+		i++;
+	}
 }
