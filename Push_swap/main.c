@@ -69,7 +69,7 @@ void	a_to_b(t_stack **a, t_stack **b, t_var *var)
 	while (*a)
 	{
 		var->index = ft_get_index(*a, var->sorted_array, var->start,
-				var->range + var->start);
+				var->range + var->start, var->size);
 		if (var->index >= ft_lstsize(*a) / 2)
 		{
 			while (++var->index <= ft_lstsize(*a))
