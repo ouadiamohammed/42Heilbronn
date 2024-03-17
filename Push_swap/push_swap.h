@@ -50,7 +50,7 @@ void	rrr(t_stack **stackA, t_stack **stackB);
 void	ft_putstr(const char *str);
 int		ft_lstsize(t_stack *lst);
 int		ft_big_index(t_stack *b, int big);
-int		ft_get_index(t_stack *a, int *array, int start, int end, int size);
+int		ft_get_index(t_stack *a, t_var *var, int end);
 int		*sort_stack_in_array(t_stack *a, int size);
 void	ft_print_stack(t_stack *stack);
 int		smallest_node(t_stack *cpy);

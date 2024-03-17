@@ -71,7 +71,7 @@ int	*sort_stack_in_array(t_stack *a, int size)
 	return (array);
 }
 
-int	ft_get_index(t_stack *a, int *array, int start, int end, int size)
+int	ft_get_index(t_stack *a, t_var *var, int end)
 {
 	int	index;
 	int	i;
@@ -79,11 +79,11 @@ int	ft_get_index(t_stack *a, int *array, int start, int end, int size)
 	index = -1;
 	while (a)
 	{
-		i = start;
+		i = var->start;
 		index++;
-		while (i < end && i < size)
+		while (i < end && i < var->size)
 		{
-			if (array[i] == a->nbr)
+			if (var->sorted_array[i] == a->nbr)
 				return (index);
 			i++;
 		}
