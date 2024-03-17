@@ -6,7 +6,7 @@
 #    By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 12:04:55 by mouadia           #+#    #+#              #
-#    Updated: 2024/03/04 12:16:22 by mouadia          ###   ########.fr        #
+#    Updated: 2024/03/07 06:19:13 by mouadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer -g
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer -g
 
 RM = rm -f
 

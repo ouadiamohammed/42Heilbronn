@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:57:26 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/07 06:07:49 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/07 06:22:33 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		while (last_node->next != NULL)
 		{
 			if (last_node->nbr == new->nbr)
-				ft_exit("err duplicat", "");
+				ft_exit("Error", "");
 			last_node = last_node->next;
 		}
 		if (last_node->nbr == new->nbr)
-			ft_exit("err duplicat", "");
+			ft_exit("Error", "");
 		last_node->next = new;
 	}
 }

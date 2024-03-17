@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 21:02:41 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/04 11:48:23 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 13:09:14 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <limits.h>
 
-typedef struct	s_var
+typedef struct s_var
 {
 	int		size;
 	int		index;
@@ -31,17 +31,15 @@ typedef struct	s_var
 	int		big;
 	int		sec_big;
 
-} 	t_var;
+}	t_var;
 
-typedef struct	push_swap
+typedef struct push_swap
 {
 	int					nbr;
 	struct push_swap	*next;
 }	t_stack;
 
-
 void	ft_exit(const char *msg, const char *type);
-
 void	rotate_first_two(t_stack **head, const char *inst);
 void	ss(t_stack **stackA, t_stack **stackB);
 void	push(t_stack **source, t_stack **destination, const char *inst);
@@ -54,8 +52,6 @@ int		ft_lstsize(t_stack *lst);
 int		ft_big_index(t_stack *b, int big);
 int		ft_get_index(t_stack *a, int *array, int start, int end);
 int		*sort_stack_in_array(t_stack *a, int size);
-void	sort_five_int(t_stack **a, t_stack **b, int size);
-void	sort_three_int(t_stack **a);
 void	ft_print_stack(t_stack *stack);
 int		smallest_node(t_stack *cpy);
 int		ft_check_sort(t_stack *cpy);
@@ -76,8 +72,8 @@ void	b_to_a(t_stack **a, t_stack **b, t_var *var);
 void	a_to_b(t_stack **a, t_stack **b, t_var *var);
 /*sort_algo functions*/
 void	sort_three_int(t_stack **a);
-void    sort_five_int(t_stack **a, t_stack **b, int size);
+void	sort_five_int(t_stack **a, t_stack **b);
 void	sort_more_than_five(t_stack **a, t_stack **b, t_var *var);
-
+void	sorting_array(int *array, int end);
 
 #endif

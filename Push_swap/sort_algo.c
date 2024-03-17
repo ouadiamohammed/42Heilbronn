@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 00:27:01 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/07 05:57:18 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 13:07:39 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@ void	sort_three_int(t_stack **a)
 		return ;
 	if ((*a)->nbr > (*a)->next->nbr)
 	{
-		rotate_first_two(a ,"sa");
+		rotate_first_two(a, "sa");
 		if (!ft_check_sort(*a))
-			reverse_rotate_linked_list(a ,"rra");
+			reverse_rotate_linked_list(a, "rra");
 		if (!ft_check_sort(*a))
-			rotate_first_two(a ,"sa");
+			rotate_first_two(a, "sa");
 	}
 	else if ((*a)->nbr < (*a)->next->nbr)
 	{
-		reverse_rotate_linked_list(a ,"rra");
+		reverse_rotate_linked_list(a, "rra");
 		if (!ft_check_sort(*a))
-			rotate_first_two(a ,"sa");
+			rotate_first_two(a, "sa");
 	}
 }
 
-void sort_five_int(t_stack **a, t_stack **b, int size)
+void	sort_five_int(t_stack **a, t_stack **b)
 {
 	while (ft_lstsize(*a) > 3)
 	{
@@ -44,11 +44,10 @@ void sort_five_int(t_stack **a, t_stack **b, int size)
 			rotate_linked_list(a, "ra");
 	}
 	sort_three_int(a);
-	push(b, a, "pa");
-	if (size != ft_lstsize(*a))
+	while (ft_lstsize(*b))
 		push(b, a, "pa");
 	if ((*a)->nbr > (*a)->next->nbr)
-		rotate_first_two(a, "ra");
+		rotate_first_two(a, "sa");
 }
 
 void	sort_more_than_five(t_stack **a, t_stack **b, t_var *var)
@@ -67,16 +66,18 @@ void	sort_more_than_five(t_stack **a, t_stack **b, t_var *var)
 	b_to_a(a, b, var);
 	free(var->sorted_array);
 }
+
 void	ft_exit(const char *msg, const char *type)
 {
-	printf("%s%s\n" ,msg, type);
-	exit(0);
+	printf("%s%s\n", msg, type);
+	exit (0);
 }
-void sorting_array(int *array, int end)
+
+void	sorting_array(int *array, int end)
 {
-	int i;
-	int j;
-	int save;
+	int	i;
+	int	j;
+	int	save;
 
 	i = 0;
 	while (i < end)
