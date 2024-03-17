@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 12:38:28 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/17 16:27:06 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 21:37:57 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	a_to_b(t_stack **a, t_stack **b, t_var *var)
 		}
 		push(a, b, "pb");
 		if (ft_lstsize(*b) >= var->range + var->start)
-		{				
+		{
 			var->start += var->range;
 		}
 	}
