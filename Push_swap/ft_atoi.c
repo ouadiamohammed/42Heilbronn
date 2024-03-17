@@ -19,7 +19,7 @@ static int	white_space(char c)
 	return (0);
 }
 
-void	atoi_boucle(char *str, int *num)
+void	atoi_boucle(char *str, long int *num, int sign)
 {
 	int	digit;
 
@@ -29,17 +29,17 @@ void	atoi_boucle(char *str, int *num)
 			ft_exit("Error\n");
 		*num *= 10;
 		digit = (int)(*str - '0');
-		if (digit < 0)
-			digit = -digit;
 		*num += digit;
+		if (*num * sign > INT_MAX || *num * sign < INT_MIN)
+			ft_exit("Error\n");
 		str++;
 	}
 }
 
 int	ft_atoi(char *str)
 {
-	int	num;
-	int	sign;
+	long int	num;
+	int			sign;
 
 	num = 0;
 	sign = 1;
@@ -51,7 +51,7 @@ int	ft_atoi(char *str)
 			sign = -1;
 		str++;
 	}
-	atoi_boucle(str, &num);
+	atoi_boucle(str, &num, sign);
 	return (num * sign);
 }
 
