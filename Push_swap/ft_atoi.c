@@ -55,19 +55,14 @@ int	ft_atoi(char *str)
 	return (num * sign);
 }
 
-void	adv_atoi_cond(t_stack **a, char *str, int *num, int *sign)
+void	adv_atoi_cond(t_stack **a, char *str, long int *num, int *sign)
 {
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			*sign = -1;
-		str++;
-	}
 	if (!ft_isdigit(*str))
 		ft_exit("Error\n");
 	*num = *num * 10 + *str - '0';
-	str++;
-	if (*str == ' ' || *str == '\0')
+	if (*num * *sign > INT_MAX || *num * *sign < INT_MIN)
+			ft_exit("Error\n");
+	if (*(str + 1) == ' ' || *(str + 1) == '\0')
 	{
 		ft_lstadd_back(a, ft_lstnew(*num * *sign));
 		*sign = 1;
@@ -77,7 +72,7 @@ void	adv_atoi_cond(t_stack **a, char *str, int *num, int *sign)
 
 void	ft_adv_atoi(char *str, t_stack **a)
 {
-	int	num;
+	long int	num;
 	int	sign;
 
 	num = 0;
@@ -88,6 +83,12 @@ void	ft_adv_atoi(char *str, t_stack **a)
 	{
 		while (white_space(*str))
 			str++;
+		if ((*str == '-' || *str == '+') && num == 0)
+		{
+			if (*str == '-')
+				sign = -1;
+			str++;
+		}
 		adv_atoi_cond(a, str, &num, &sign);
 		str++;
 	}
