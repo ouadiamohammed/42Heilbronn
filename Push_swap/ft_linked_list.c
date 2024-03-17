@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 12:12:48 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/07 05:51:56 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 16:30:07 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,6 @@ int	smallest_node(t_stack *cpy)
 		current_index++;
 	}
 	return (small_index);
-}
-
-void	ft_print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("%d ", stack->nbr);
-		stack = stack->next;
-	}
-	printf("\n");
 }
 
 int	ft_check_sort(t_stack *cpy)

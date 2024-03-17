@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 21:02:41 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/17 13:59:15 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 16:30:36 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 
@@ -52,7 +51,6 @@ int		ft_lstsize(t_stack *lst);
 int		ft_big_index(t_stack *b, int big);
 int		ft_get_index(t_stack *a, t_var *var, int end);
 int		*sort_stack_in_array(t_stack *a, int size);
-void	ft_print_stack(t_stack *stack);
 int		smallest_node(t_stack *cpy);
 int		ft_check_sort(t_stack *cpy);
 t_stack	*push_swap_init(int ac, char **av);

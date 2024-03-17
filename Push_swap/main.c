@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 12:38:28 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/17 13:30:00 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 16:27:06 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,4 @@ int	main(int ac, char **av)
 		sort_five_int(&a, &b);
 	else if (var.size > 5 && !ft_check_sort(a))
 		sort_more_than_five(&a, &b, &var);
-	// ft_print_stack(a);
 }

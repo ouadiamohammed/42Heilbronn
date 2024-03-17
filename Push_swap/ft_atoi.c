@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 11:59:49 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/17 13:58:28 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 16:27:36 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	adv_atoi_cond(t_stack **a, char *str, long int *num, int *sign)
 		ft_exit("Error\n");
 	*num = *num * 10 + *str - '0';
 	if (*num * *sign > INT_MAX || *num * *sign < INT_MIN)
-			ft_exit("Error\n");
+		ft_exit("Error\n");
 	if (*(str + 1) == ' ' || *(str + 1) == '\0')
 	{
 		ft_lstadd_back(a, ft_lstnew(*num * *sign));
@@ -73,7 +73,7 @@ void	adv_atoi_cond(t_stack **a, char *str, long int *num, int *sign)
 void	ft_adv_atoi(char *str, t_stack **a)
 {
 	long int	num;
-	int	sign;
+	int			sign;
 
 	num = 0;
 	sign = 1;
