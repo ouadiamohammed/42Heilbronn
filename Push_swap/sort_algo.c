@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 00:27:01 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/17 13:59:32 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 14:11:36 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	ft_exit(const char *msg)
 		write (2, msg++, 1);
 	exit (0);
 }
-
 
 void	sorting_array(int *array, int end)
 {
