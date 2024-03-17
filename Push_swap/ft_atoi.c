@@ -55,39 +55,40 @@ int	ft_atoi(char *str)
 	return (num * sign);
 }
 
-void	adv_atoi_cond(t_stack **a, char *str)
+void	adv_atoi_cond(t_stack **a, char *str, int *num, int *sign)
+{
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			*sign = -1;
+		str++;
+	}
+	if (!ft_isdigit(*str))
+		ft_exit("Error", str);
+	*num = *num * 10 + *str - '0';
+	str++;
+	if (*str == ' ' || *str == '\0')
+	{
+		ft_lstadd_back(a, ft_lstnew(*num * *sign));
+		*sign = 1;
+		*num = 0;
+	}
+}
+
+void	ft_adv_atoi(char *str, t_stack **a)
 {
 	int	num;
 	int	sign;
 
 	num = 0;
 	sign = 1;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	if (!ft_isdigit(*str))
-		ft_exit("Error", str);
-	num = num * 10 + *str - '0';
-	str++;
-	if (*str == ' ' || *str == '\0')
-	{
-		ft_lstadd_back(a, ft_lstnew(num * sign));
-		sign = 1;
-		num = 0;
-	}
-}
-
-void	ft_adv_atoi(char *str, t_stack **a)
-{
 	while (white_space(*str))
 		str++;
 	while (*str)
 	{
 		while (white_space(*str))
 			str++;
-		adv_atoi_cond(a, str);
+		adv_atoi_cond(a, str, &num, &sign);
+		str++;
 	}
 }
