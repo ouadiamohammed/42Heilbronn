@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 21:02:41 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/17 13:09:14 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 13:59:15 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct push_swap
 	struct push_swap	*next;
 }	t_stack;
 
-void	ft_exit(const char *msg, const char *type);
+void	ft_exit(const char *msg);
 void	rotate_first_two(t_stack **head, const char *inst);
 void	ss(t_stack **stackA, t_stack **stackB);
 void	push(t_stack **source, t_stack **destination, const char *inst);
@@ -62,7 +62,6 @@ int		ft_atoi(char *str);
 int		ft_isdigit(int c);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstnew(int nbr);
-void	ft_exit(const char *msg, const char *type);
 int		ft_lstsize(t_stack *lst);
 
 /*main function*/

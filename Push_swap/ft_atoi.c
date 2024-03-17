@@ -6,7 +6,7 @@
 /*   By: mouadia <mouadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 11:59:49 by mouadia           #+#    #+#             */
-/*   Updated: 2024/03/07 06:23:30 by mouadia          ###   ########.fr       */
+/*   Updated: 2024/03/17 13:58:28 by mouadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	atoi_boucle(char *str, int *num)
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			ft_exit("Error", str);
+			ft_exit("Error\n");
 		*num *= 10;
 		digit = (int)(*str - '0');
 		if (digit < 0)
@@ -64,7 +64,7 @@ void	adv_atoi_cond(t_stack **a, char *str, int *num, int *sign)
 		str++;
 	}
 	if (!ft_isdigit(*str))
-		ft_exit("Error", str);
+		ft_exit("Error\n");
 	*num = *num * 10 + *str - '0';
 	str++;
 	if (*str == ' ' || *str == '\0')
